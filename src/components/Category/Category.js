@@ -4,10 +4,14 @@ import {CategoryHeader} from "./Cat-components/Category-header";
 import {CategorySumUp} from "./Cat-components/Category-sum-up";
 import {CategoryPercentage} from "./Cat-components/Category-precentage";
 
+function handleCategory() {
+    console.log("cat")
+}
+
 export function Cat() {
     return (
         <p className={"category-main"}>
-            <CardActionArea sx={{margin: 0, padding: 0}}>
+            <CardActionArea onClick={handleCategory} sx={{margin: 0, padding: 0}}>
                 <div className={"category-main-container"}>
                     <CategoryHeader/>
                     <div className={"category-details-container"}>

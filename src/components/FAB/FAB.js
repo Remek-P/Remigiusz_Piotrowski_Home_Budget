@@ -4,23 +4,26 @@ import AddIcon from '@mui/icons-material/Add';
 
 const fabStyle = {
     position: 'sticky',
-    right: 200,
+    left: 20000,
     bottom: 20,
     width: 80,
     height: 80,
-    color: "white",
-    backgroundColor: "#000000",
+    margin: 2,
+    color: "#fff",
+    backgroundColor: "#000",
     ":hover": {
-        color: "#fff",
-        backgroundColor: "#949494",
+        color: "#949494",
+        backgroundColor: "#fff",
     }
 };
 
-
+function handleNewExpense() {
+    console.log("new")
+}
 
 export function FAB() {
     return (
-        <Fab sx={fabStyle}>
+        <Fab onClick={handleNewExpense} sx={fabStyle}>
             <AddIcon sx={{fontSize: 40}}/>
         </Fab>
 
