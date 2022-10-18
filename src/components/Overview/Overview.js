@@ -18,7 +18,9 @@ export function Overview() {
         <Box
             sx={OverviewStyle}
         >
-            <Paper elevation={3} />
+            <Paper elevation={3}>
+                
+            </Paper>
         </Box>
     );
 }

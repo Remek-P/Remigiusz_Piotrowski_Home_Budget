@@ -1,5 +1,5 @@
 import React from "react";
-import { Overview } from "../Category/Overview";
+import { Overview } from "../Overview/Overview";
 import { Cat } from "../Category/Category";
 
 

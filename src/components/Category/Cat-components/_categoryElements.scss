@@ -1,0 +1,24 @@
+.category-main-container {
+  display: block;
+}
+
+.category-details-container {
+  display: flex;
+}
+
+
+.category-main__header {
+  padding: 1.125rem;
+  padding-left: 1.3125rem;
+  font-size: $font-size-cat-main;
+  font-weight: $font-weight-bold;
+}
+
+.category-details-container {
+  display: flex;
+  gap: 2rem;
+  padding: 1.125rem;
+  padding-left: 1.3125rem;
+  font-size: $font-size-cat-main;
+  font-weight: $font-weight-regular;
+}
