@@ -1,4 +1,4 @@
-.category-main {
+.overview-main {
   display: flex;
   min-width: 89.33vw;
   min-height: 20.79vh;
@@ -9,25 +9,25 @@
 }
 
 
-.category-main-container {
+.overview-main-container {
   min-width: 100%;
   min-height: 100%;
   background-color: $colour-cat-background;
   position: relative;
 }
 
-.category-details-container {
+.overview-details-container {
   display: flex;
 }
 
 
-.category-main__header {
+.overview-main__header {
   padding: 8.93% 7% 4% 7%;
   font-size: $font-size-cat-main;
   font-weight: $font-weight-bold;
 }
 
-.category-details-container {
+.overview-details-container {
   display: flex;
   gap: 15%;
   padding: 4% 1% 1% 7%;

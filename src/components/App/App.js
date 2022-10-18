@@ -1,6 +1,7 @@
 import React from "react";
 import { Overview } from "../Overview/Overview";
 import { Cat } from "../Category/Category";
+import {FAB} from "../FAB/FAB";
 
 
 export function App() {
@@ -11,6 +12,10 @@ export function App() {
             <Cat />
             <Cat />
             <Cat />
+            <Cat />
+            <Cat />
+            <Cat />
+            <FAB />
         </div>
     );
 }
