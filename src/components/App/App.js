@@ -10,6 +10,7 @@ export function App() {
             <Overview />
             <Cat />
             <Cat />
+            <Cat />
         </div>
     );
 }
