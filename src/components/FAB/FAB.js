@@ -8,7 +8,8 @@ const fabStyle = {
     bottom: 20,
     width: 60,
     height: 60,
-    margin: 2,
+    mt: 2,
+    mr: 1,
     color: "#fff",
     backgroundColor: "#000",
     ":hover": {
