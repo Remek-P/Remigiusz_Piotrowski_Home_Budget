@@ -1,6 +1,7 @@
 @import "./scss-general/style/reset";
 @import "./scss-general/variables/variables";
 @import "./scss-general/style/style.scss";
-@import "./components/App/App";
-@import "components/Category/Cat-components/categoryElements";
-@import "components/Overview/Overview-components/overviewElements";
+@import "components/Layout/Layout";
+@import "components/CategoryMain/Cat-components/categoryElements";
+@import "components/Overview/OverviewMain/overviewElements";
+@import "./components/Overview/OverviewDetails/overviewDetails";

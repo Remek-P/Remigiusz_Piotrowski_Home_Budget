@@ -16,18 +16,13 @@
   position: relative;
 }
 
-.overview-details-container {
-  display: flex;
-}
-
-
 .overview-main__header {
   padding: 8.93% 7% 4% 7%;
   font-size: $font-size-cat-main;
   font-weight: $font-weight-bold;
 }
 
-.overview-details-container {
+.overview-components-container {
   display: flex;
   gap: 15%;
   padding: 4% 1% 1% 7%;

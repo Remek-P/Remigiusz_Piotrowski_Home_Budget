@@ -1,7 +1,8 @@
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 export function OverviewHeader() {
     return (
-            <header className={"overview-main__header"}>All expenses</header>
+            <h3 className={"overview-main__header"}>All expenses</h3>
     );
 }

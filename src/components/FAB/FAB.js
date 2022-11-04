@@ -6,8 +6,8 @@ const fabStyle = {
     position: 'sticky',
     left: 20000,
     bottom: 20,
-    width: 80,
-    height: 80,
+    width: 60,
+    height: 60,
     margin: 2,
     color: "#fff",
     backgroundColor: "#000",
@@ -16,7 +16,7 @@ const fabStyle = {
         backgroundColor: "#fff",
     }
 };
-
+//TODO: code the function
 function handleNewExpense() {
     console.log("new")
 }
