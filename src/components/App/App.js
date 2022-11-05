@@ -9,7 +9,11 @@ import { GlobalProvider } from "../../context/GlobalStates";
 import { OverviewPage } from "../../pages/overview/OverviewPage";
 import { MissingPage } from "../../pages/missingPage/MissingPage";
 
+//TODO: check if declaring global variable like that is ok
+window.currentMonth1 = (new Date().getMonth() + 1).toString(10);
+
 export function App() {
+
     return (
         <GlobalProvider> {/*Added the provider as a separate element no to mess the layout*/}
             <Router>

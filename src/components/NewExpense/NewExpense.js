@@ -6,7 +6,7 @@ export function NewExpense() {
 
     const [ name,       setName     ] = useState("");
     const [ date,       setDate     ] = useState(currentDate);
-    const [ price,      setPrice    ] = useState("");
+    const [ value,      setValue    ] = useState("");
     //TODO: change currency to default PLN and add selection
     const [ currency,   setCurrency ] = useState("zł");
     //TODO: add selection
@@ -20,10 +20,10 @@ export function NewExpense() {
         e.preventDefault();
     }
 
-    // function priceOnChange() {
+    // function valueOnChange() {
     //     const regExNumerical = /0-9/;
-    //     const isPriceNumerical = regExNumerical.test(price);
-    //     return isPriceNumerical ? event => setPrice(event.target.value) : console.log("Only numerical values are allowed");
+    //     const isPriceNumerical = regExNumerical.test(value);
+    //     return isPriceNumerical ? event => setValue(event.target.value) : console.log("Only numerical values are allowed");
     // }
 
     return (
@@ -39,8 +39,8 @@ export function NewExpense() {
                     <input type="date" value={date} onChange={event => setDate(event.target.value)} placeholder={"Type the date"}/>
                 </div>
                 <div>
-                    <label htmlFor="amount">What was the price?</label>
-                    <input required={true} type="amount" value={price} onChange={event => setPrice(event.target.value)} placeholder={"Type the amount"}/>
+                    <label htmlFor="amount">What was the value?</label>
+                    <input required={true} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type the amount"}/>
                 </div>
                 <div>
                     <label htmlFor="text">What was the currency?</label>

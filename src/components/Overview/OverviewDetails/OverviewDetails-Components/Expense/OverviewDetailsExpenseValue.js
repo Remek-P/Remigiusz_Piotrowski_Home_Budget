@@ -2,12 +2,18 @@ import React from "react";
 
 export function OverviewDetailsExpenseValue({ transaction }) {
 
+    //TODO: add income handling
+    //For future feature income
+    // const sign = transaction.value < 0 ? "-" : "+";
+
     //Picking the side for currency notation
     const currencyDisplay = () => {
         if (transaction.currency === "zł") {
-            return transaction.price + transaction.currency
+            return transaction.value + transaction.currency
+            // return sign + transaction.value + transaction.currency
         } else {
-            return <span>{transaction.currency}{transaction.price}</span>
+            return <span>{transaction.currency}{transaction.value}</span>
+            // return <span>{sign}{transaction.currency}{transaction.value}</span>
         }
     };
 
