@@ -33,3 +33,4 @@ export function App() {
 {/*TODO: finish 404 page*/}
 {/*TODO: move the scss file to new location and rename*/}
 {/*TODO: delay routing to show animations*/}
+{/*TODO: phantom link on the opposite side of FAB*/}

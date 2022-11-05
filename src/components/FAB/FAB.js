@@ -18,15 +18,11 @@ const fabStyle = {
         backgroundColor: "#fff",
     }
 };
-//TODO: code the function
-function handleNewExpense() {
-    console.log("new")
-}
 
 export function FAB() {
     return (
         <NavLink to="/NewExpense">
-            <Fab onClick={handleNewExpense} sx={fabStyle}>
+            <Fab sx={fabStyle}>
                 <AddIcon sx={{fontSize: 40}}/>
             </Fab>
         </NavLink>

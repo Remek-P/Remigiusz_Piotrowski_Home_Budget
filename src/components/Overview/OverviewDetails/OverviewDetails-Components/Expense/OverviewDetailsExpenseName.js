@@ -1,14 +1,10 @@
 import React from "react";
-import { useContext } from "react";
-import { GlobalContext } from "../../../../../context/GlobalStates";
 
-export function OverviewDetailsExpenseName() {
-
-    const { transactions } = useContext(GlobalContext)
+export function OverviewDetailsExpenseName({ transaction }) {
 
     return (
-        transactions.map(transaction => (<h4 key={transaction.id} className={"overview-details-expense__container__header"}>{transaction.name}
-        </h4>))
+        <h4 className={"overview-details-expense__container__header"}>{transaction.name}
+        </h4>
     )
 }
 

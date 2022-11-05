@@ -1,23 +1,20 @@
 import React from "react";
-import { useContext } from "react";
-import { GlobalContext } from "../../../../../context/GlobalStates";
 
-export function OverviewDetailsExpenseValue() {
+export function OverviewDetailsExpenseValue({ transaction }) {
 
-    const { transactions } = useContext(GlobalContext)
-
-    const currencyDisplay = (a) => {
-        if (a.currency === "zł") {
-            return a.price + a.currency
+    //Picking the side for currency notation
+    const currencyDisplay = () => {
+        if (transaction.currency === "zł") {
+            return transaction.price + transaction.currency
         } else {
-            return a.currency + a.price
+            return <span>{transaction.currency}{transaction.price}</span>
         }
     };
 
 
     return (
-        transactions.map(transaction => <div key={transaction.id} className={"overview-details-expense__container__value"}>{currencyDisplay(transaction)}
-        </div>)
+        <div className={"overview-details-expense__container__value"}>{currencyDisplay()}
+        </div>
 
     )
 }
