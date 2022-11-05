@@ -3,12 +3,11 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { MainPage } from "../../pages/main/MainPage";
 import { Layout } from '../Layout/Layout';
 import { Cat } from "../CategoryMain/CategoryMain";
-import { FAB } from "../FAB/FAB";
+import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
 
-import { NewExpense } from "../NewExpense/NewExpense";
 import { GlobalProvider } from "../../context/GlobalStates";
 import { OverviewPage } from "../../pages/overview/OverviewPage";
-import {MissingPage} from "../../pages/missingPage/MissingPage";
+import { MissingPage } from "../../pages/missingPage/MissingPage";
 
 export function App() {
     return (
@@ -19,8 +18,7 @@ export function App() {
                         <Route exact path="/" element={<MainPage/>}/>
                         <Route path="/Overview" element={<OverviewPage/>}/>
                         <Route path="/Cat1" element={<Cat/>}/>
-                        <Route path="/NewExpense" element={<NewExpense/>}/>
-                        <Route path="/FAB" element={<FAB/>}/>
+                        <Route path="/NewExpense" element={<NewExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
                 </Routes>

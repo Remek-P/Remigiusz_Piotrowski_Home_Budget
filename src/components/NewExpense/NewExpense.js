@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 
+//TODO: styling
+
 export function NewExpense() {
 
     const [ name,       setName     ] = useState("");
     const [ date,       setDate     ] = useState(currentDate);
     const [ price,      setPrice    ] = useState("");
     //TODO: change currency to default PLN and add selection
-    const [ currency,   setCurrency ] = useState("");
+    const [ currency,   setCurrency ] = useState("zł");
     //TODO: add selection
     const [ category,   setCategory ] = useState(undefined);
     const [ notes,      setNotes    ] = useState("");

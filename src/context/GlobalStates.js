@@ -4,7 +4,7 @@ import { AppReducer } from "./AppReducer";
 
 const initialState = {
     transactions: [
-        {id: 1, name: "game", date: 2/11/2022, price: 200, currency: "zł", category: "gaming", note: "present for my birthday"}
+        {id: 1, name: "game", date: "2/11/2022", price: 200, currency: "zł", category: "gaming", note: "present for my birthday"}
     ]
 }
 
@@ -19,3 +19,5 @@ export const GlobalProvider = ({ children }) => {
         </GlobalContext.Provider>
     )
 }
+
+//Named transactions, for future functionality (expense and income)

@@ -1,4 +1,10 @@
 import React from "react";
+import {OverviewDetailsSummupCurrentMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupCurrentMonth";
+import {OverviewDetailsSummupPreviousMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupPreviousMonth";
+import {OverviewDetailsSummupM2MPercentage} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupM2MPercentage";
+import {OverviewDetailsExpenseDate} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseDate";
+import {OverviewDetailsExpenseName} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseName";
+import {OverviewDetailsExpenseValue} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseValue";
 
 export function OverviewDetails() {
     return (
@@ -6,38 +12,23 @@ export function OverviewDetails() {
                 <h3 className={"overview-details__header"}>All expenses</h3>
                 <ul className={"overview-details-summup"}>
                     <li>
-                        <h5 className={"overview-details-summup__header"}>This month
-                            <div className={"overview-details-summup__values"}>$12,536</div>
-                        </h5>
-
+                        <OverviewDetailsSummupCurrentMonth />
                     </li>
                     <li>
-                        <h5 className={"overview-details-summup__header"}>Prev. month
-                            <div className={"overview-details-summup__values"}>$15,000</div>
-                        </h5>
+                        <OverviewDetailsSummupPreviousMonth />
                     </li>
                     <li>
-                        <h5 className={"overview-details-summup__header"}>M2M&nbsp;change
-                            <div className={"overview-details-summup__values"}>+13%</div>
-                        </h5>
+                        <OverviewDetailsSummupM2MPercentage />
                     </li>
                 </ul>
                 <ul>
                     <li className={"overview-details-expense"}>
-                        <h5 className={"overview-details-expense__header"}>Today, 16 October 2022</h5>
+                        <OverviewDetailsExpenseDate />
                         <article className={"overview-details-expense__container"}>
-                            <h4 className={"overview-details-expense__container__header"}>Expense 18</h4>
-                            <div className={"overview-details-expense__container__value"}>$500</div>
+                            <OverviewDetailsExpenseName />
+                            <OverviewDetailsExpenseValue />
                         </article>
                     </li>
-                    <li className={"overview-details-expense"}>
-                        <h5 className={"overview-details-expense__header"}>Today, 16 October 2022</h5>
-                        <article className={"overview-details-expense__container"}>
-                            <h4 className={"overview-details-expense__container__header"}>Expense 18</h4>
-                            <div className={"overview-details-expense__container__value"}>$500</div>
-                        </article>
-                    </li>
-
                 </ul>
             </section>
     )

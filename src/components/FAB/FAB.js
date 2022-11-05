@@ -1,5 +1,6 @@
 import React from "react";
-import {Fab} from "@mui/material";
+import { NavLink } from "react-router-dom";
+import { Fab } from "@mui/material";
 import AddIcon from '@mui/icons-material/Add';
 
 const fabStyle = {
@@ -24,9 +25,10 @@ function handleNewExpense() {
 
 export function FAB() {
     return (
-        <Fab onClick={handleNewExpense} sx={fabStyle}>
-            <AddIcon sx={{fontSize: 40}}/>
-        </Fab>
-
+        <NavLink to="/NewExpense">
+            <Fab onClick={handleNewExpense} sx={fabStyle}>
+                <AddIcon sx={{fontSize: 40}}/>
+            </Fab>
+        </NavLink>
     )
 }
