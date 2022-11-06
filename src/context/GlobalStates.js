@@ -6,6 +6,7 @@ const initialState = {
         {id: 2, name: "bread", date: "10", value: 20, currency: "$", category: "gaming", note: "present for my birthday"},
         {id: 3, name: "ticket", date: "11", value: 2000, currency: "zł", category: "gaming", note: "present for my birthday"},
         {id: 4, name: "phone", date: "11", value: 2000, currency: "$", category: "gaming", note: "present for my birthday"},
+        {id: 5, name: "racs", date: "11", value: 10, currency: "zł", category: "trips", note: "present for my birthday"},
     ],
     //TODO: why undefined?
     currencySign: [
