@@ -32,3 +32,4 @@ export function Cat() {
     )
 }
 
+//Cats are generated based on categories from GlobalState, but not grouped (need reduce)
