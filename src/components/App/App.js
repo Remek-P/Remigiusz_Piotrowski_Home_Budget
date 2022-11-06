@@ -21,7 +21,7 @@ export function App() {
                     <Route exact path="/" element={<Layout/>}>
                         <Route exact path="/" element={<MainPage/>}/>
                         <Route path="/Overview" element={<OverviewPage/>}/>
-                        <Route path="/Cat1" element={<Cat/>}/>
+                        <Route path="/Cat/*" element={<Cat/>}/>
                         <Route path="/NewExpense" element={<NewExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
