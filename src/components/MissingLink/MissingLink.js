@@ -2,6 +2,6 @@ import React from "react";
 
 export function MissingLink() {
     return (
-        <h1>Can't find the page</h1>
+        <img className={"missing-link"} src={"../assets/visuals/Move-along-nothing-to-see-here.jpg"} alt={"Still from The Naked Gun movie - Nothing to see here"}/>
     )
 }

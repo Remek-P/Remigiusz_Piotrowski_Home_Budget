@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from "react-router-dom";
 import { CardActionArea } from '@mui/material';
-import { OverviewHeader } from "../Overview-components/Overview-header";
-import { OverviewSumUp } from "../Overview-components/Overview-sum-up";
+import { OverviewHeader } from "../OverviewComponents/Overview-header";
+import { OverviewSumUp } from "../OverviewComponents/Overview-sum-up";
 
 function handleOverview() {
     console.log("overview")

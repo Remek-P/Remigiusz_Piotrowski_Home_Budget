@@ -6,5 +6,3 @@ export function MissingPage() {
         <MissingLink />
     )
 }
-
-//TODO: finish the the 404 page

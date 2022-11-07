@@ -1,10 +1,10 @@
 import React, {useContext} from 'react';
 import { NavLink } from "react-router-dom";
 import {CardActionArea} from '@mui/material';
-import {CategoryHeader} from "./Cat-components/Category-header";
-import {CategorySumUp} from "./Cat-components/Category-sum-up";
-import {CategoryPercentage} from "./Cat-components/Category-precentage";
-import {GlobalContext} from "../../context/GlobalStates";
+import {CategoryHeader} from "./CategoryOverviewComponents/Category-header";
+import {CategorySumUp} from "./CategoryOverviewComponents/Category-sum-up";
+import {CategoryPercentage} from "./CategoryOverviewComponents/Category-precentage";
+import {GlobalContext} from "../../../context/GlobalStates";
 
 export function Cat() {
 
@@ -12,7 +12,6 @@ export function Cat() {
     const currentMonth = (new Date().getMonth() + 1).toString(10);
     const data = transactions.map(transaction => transaction.category)
     let filtered = data.filter((item,index) => data.indexOf(item) === index)
-
 
     return (
         <ul>
@@ -23,7 +22,9 @@ export function Cat() {
                             <div className={"category-main-container"}>
                                 <CategoryHeader transaction={transaction}/>
                                 <div className={"category-details-container"}>
-                                    <CategorySumUp transaction={transaction} parentMonth={currentMonth}
+                                    <CategorySumUp
+                                        transaction={transaction}
+                                        parentMonth={currentMonth}
                                     />
                                     <CategoryPercentage
                                         transaction={transaction}

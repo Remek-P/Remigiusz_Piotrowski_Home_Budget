@@ -1,5 +1,5 @@
 import React from 'react';
-import {Calculator} from "../../Calculators/Calculator";
+import {Calculator} from "../../../Calculators/Calculator";
 
 export function CategorySumUp({ transaction, parentMonth }) {
     return (

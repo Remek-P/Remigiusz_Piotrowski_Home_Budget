@@ -2,7 +2,7 @@ import React from "react";
 import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import { MainPage } from "../../pages/main/MainPage";
 import { Layout } from '../Layout/Layout';
-import { Cat } from "../CategoryMain/CategoryMain";
+import { Cat } from "../Category/CatMain/CategoryMain";
 import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
 
 import { GlobalProvider } from "../../context/GlobalStates";
@@ -22,7 +22,7 @@ export function App() {
                     <Route exact path="/" element={<Layout/>}>
                         <Route exact path="/" element={<MainPage/>}/>
                         <Route path="/Overview" element={<OverviewPage/>}/>
-                        <Route path="/Cat/*" element={<CategoryPage/>}/>
+                        <Route path="/Cat/:catName" element={<CategoryPage />}/>
                         <Route path="/NewExpense" element={<NewExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>

@@ -1,5 +1,4 @@
 import React from "react";
-import {MainPage} from "../../pages/main/MainPage";
 import {Outlet, NavLink} from 'react-router-dom';
 
 export function Layout() {
