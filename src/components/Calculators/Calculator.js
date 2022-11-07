@@ -9,7 +9,7 @@ export function Calculator({parentMonth, parentCategory}) {
         return (
             <>
                 {transactions
-                    .filter((month) => month.date === parentMonth)
+                    .filter((month) => month.month === parentMonth)
                     .reduce((total, amount) => total + amount.value, 0)
                 }
             </>
@@ -18,12 +18,14 @@ export function Calculator({parentMonth, parentCategory}) {
         return (
             <>
                 {transactions
-                    .filter((month) => month.date === parentMonth)
+                    .filter((month) => month.month === parentMonth)
                     .filter((category) => category.category === parentCategory)
-                    .reduce((total, amount) => total + amount.value, 0)}
+                    .reduce((total, amount) => total + amount.value, 0)
+                }
             </>
         )
     }
 }
 
-//TODO: filtering by full date, now by hardcoded number (string)
+//TODO: filtering by full month, now by hardcoded number (string)
+//TODO: Fi

@@ -8,6 +8,7 @@ import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
 import { GlobalProvider } from "../../context/GlobalStates";
 import { OverviewPage } from "../../pages/overview/OverviewPage";
 import { MissingPage } from "../../pages/missingPage/MissingPage";
+import {CategoryPage} from "../../pages/categoryPage/CategoryPage";
 
 //TODO: check if declaring global variable like that is ok
 window.currentMonth1 = (new Date().getMonth() + 1).toString(10);
@@ -21,7 +22,7 @@ export function App() {
                     <Route exact path="/" element={<Layout/>}>
                         <Route exact path="/" element={<MainPage/>}/>
                         <Route path="/Overview" element={<OverviewPage/>}/>
-                        <Route path="/Cat/*" element={<Cat/>}/>
+                        <Route path="/Cat/*" element={<CategoryPage/>}/>
                         <Route path="/NewExpense" element={<NewExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
