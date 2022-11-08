@@ -1,23 +1,48 @@
-import React, { useState } from "react";
+import React, {useContext, useEffect, useState} from "react";
+import {GlobalContext} from "../../context/GlobalStates";
 
 //TODO: styling
 
 export function NewExpense() {
 
+    const { addTransaction, transactions } = useContext(GlobalContext);
+    const d = new Date().toString()
+    const sortedTransactions = ([...transactions].sort((a, b) => b.id - a.id)) || 0;
+    const currentID = sortedTransactions[0] !== undefined ? sortedTransactions[0].id + 1 : 1;
+
+    const [ id,         setID       ] = useState(currentID);
     const [ name,       setName     ] = useState("");
-    const [ date,       setDate     ] = useState(currentDate);
+    const [ month,      setMonth    ] = useState("")
+    const [ date,       setDate     ] = useState(d);
     const [ value,      setValue    ] = useState("");
     //TODO: change currency to default PLN and add selection
     const [ currency,   setCurrency ] = useState("zł");
     //TODO: add selection
-    const [ category,   setCategory ] = useState(undefined);
+    const [ category,   setCategory ] = useState("");
     const [ notes,      setNotes    ] = useState("");
 
-    let currentDate = new Date().toLocaleDateString("pl-PL");
+    useEffect(() => {
+        setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
+    },[date])
 
 
     const onSubmit = e => {
         e.preventDefault();
+        setID((prevState) => prevState + 1);
+
+        const newExpense = {
+            id,
+            name,
+            date,
+            month,
+            value: +value,
+            currency,
+            category,
+            notes,
+        }
+        console.log(month)
+        console.log(date)
+        addTransaction(newExpense)
     }
 
     // function valueOnChange() {
@@ -26,13 +51,17 @@ export function NewExpense() {
     //     return isPriceNumerical ? event => setValue(event.target.value) : console.log("Only numerical values are allowed");
     // }
 
+    console.log(transactions)
+    console.log(sortedTransactions)
+
+
     return (
         <>
             <h2>New Expense</h2>
             <form onSubmit={onSubmit}>
                 <div>
                     <label htmlFor="text">What did you pay for?</label>
-                    <input required={true} type="text" value={name} onChange={event => setName(event.target.value)} autoCorrect={"on"} placeholder={"Type the name"}/>
+                    <input required={false} type="text" value={name} onChange={event => setName(event.target.value)} autoCorrect={"on"} placeholder={"Type the name"}/>
                 </div>
                 <div>
                     <label htmlFor="date">When was the payment made?</label>
@@ -40,16 +69,16 @@ export function NewExpense() {
                 </div>
                 <div>
                     <label htmlFor="amount">What was the value?</label>
-                    <input required={true} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type the amount"}/>
+                    <input required={false} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type the amount"}/>
                 </div>
                 <div>
                     <label htmlFor="text">What was the currency?</label>
-                    <input required={true} type="text" value={currency} onChange={event => setCurrency(event.target.value)} placeholder={"Choose the currency"}/>
+                    <input required={false} type="text" value={currency} onChange={event => setCurrency(event.target.value)} placeholder={"Choose the currency"}/>
                 </div>
                 <div>
                     {/*TODO: making a component for category picking*/}
                     <label htmlFor="text">What is the category of the expense?</label>
-                    <input required={true} type="text" value={category} onChange={event => setCategory(event.target.value)} placeholder={"Choose a category"}/>
+                    <input required={false} type="text" value={category} onChange={event => setCategory(event.target.value)} placeholder={"Choose a category"}/>
                 </div>
                 <div>
                     <label htmlFor="textarea">Add note?</label>
@@ -60,3 +89,5 @@ export function NewExpense() {
         </>
     )
 }
+
+//TODO: fix the dates formating for various components

@@ -10,9 +10,6 @@ import { OverviewPage } from "../../pages/overview/OverviewPage";
 import { MissingPage } from "../../pages/missingPage/MissingPage";
 import {CategoryPage} from "../../pages/categoryPage/CategoryPage";
 
-//TODO: check if declaring global variable like that is ok
-window.currentMonth1 = (new Date().getMonth() + 1).toString(10);
-
 export function App() {
 
     return (
@@ -33,9 +30,8 @@ export function App() {
 }
 {/*TODO: create component for category creation and listing*/}
 {/*TODO: change to automatically generated link for Cats*/}
-{/*TODO: add NewExpense component to FAB*/}
+{/*TODO: NewExpense component register values for GlobalState*/}
 {/*TODO: clean the APP from rubbish*/}
-{/*TODO: finish 404 page*/}
 {/*TODO: move the scss file to new location and rename*/}
 {/*TODO: delay routing to show animations*/}
 {/*TODO: phantom link on the opposite side of FAB*/}
