@@ -1,42 +1,31 @@
-import React, {useContext} from "react";
+import React from "react";
 import {OverviewDetailsSummupCurrentMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupCurrentMonth";
 import {OverviewDetailsSummupPreviousMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupPreviousMonth";
 import {OverviewDetailsSummupM2MPercentage} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupM2MPercentage";
-import {OverviewDetailsExpenseDate} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseDate";
-import {OverviewDetailsExpenseName} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseName";
-import {OverviewDetailsExpenseValue} from "./OverviewDetails-Components/Expense/OverviewDetailsExpenseValue";
-import {GlobalContext} from "../../../context/GlobalStates";
+import {ExpensesList} from "./OverviewDetails-Components/ExpensesList/ExpensesList";
 
-export function OverviewDetails() {
+export function OverviewDetails({catName}) {
 
-    const { transactions } = useContext(GlobalContext)
+    console.log(catName)
+
+    const sectionName = catName !== undefined ? catName : "All expenses"
 
     return (
             <section className={"overview-details"}>
-                <h3 className={"overview-details__header"}>All expenses</h3>
+                <h3 className={"overview-details__header"}>{sectionName}</h3>
                 <ul className={"overview-details-summup"}>
                     <li>
-                        <OverviewDetailsSummupCurrentMonth />
+                        <OverviewDetailsSummupCurrentMonth catName={catName} />
                     </li>
                     <li>
-                        <OverviewDetailsSummupPreviousMonth />
+                        <OverviewDetailsSummupPreviousMonth catName={catName} />
                     </li>
                     <li>
-                        <OverviewDetailsSummupM2MPercentage />
+                        <OverviewDetailsSummupM2MPercentage catName={catName} />
                     </li>
                 </ul>
                 <ul>
-                    {transactions
-                        //Sorting by month (y+m) all the transactions
-                        .sort((a, b) => b.month - a.month)
-                        //Mapping of single transaction from all the transactions, to display them one by one
-                        .map(transaction => <li key={transaction.id} className={"overview-details-expense"}>
-                    <OverviewDetailsExpenseDate transaction={transaction} />
-                    <article className={"overview-details-expense__container"}>
-                        <OverviewDetailsExpenseName transaction={transaction} />
-                        <OverviewDetailsExpenseValue transaction={transaction} />
-                    </article>
-                </li>)}
+                    <ExpensesList catName={catName} />
                 </ul>
             </section>
     )

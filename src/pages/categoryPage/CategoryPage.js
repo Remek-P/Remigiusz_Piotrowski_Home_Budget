@@ -2,15 +2,15 @@ import React from "react";
 import {useParams} from "react-router-dom";
 
 import {FAB} from "../../components/FAB/FAB";
-import {CategoryDetails} from "../../components/Category/CategoryDetails/CategoryDetails";
+import {OverviewDetails} from "../../components/Overview/OverviewDetails/OverviewDetails";
 
-export function CategoryPage(catName) {
+export function CategoryPage() {
 
-    // let {catName} = useParams()
+    let { id } = useParams()
 
     return (
         <>
-            <CategoryDetails />
+            <OverviewDetails catName={id} />
             <FAB />
         </>
     )

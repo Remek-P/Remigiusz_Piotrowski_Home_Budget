@@ -1,8 +1,7 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
+import {BrowserRouter as Router, Routes, Route, Navigate, useParams} from 'react-router-dom';
 import { MainPage } from "../../pages/main/MainPage";
 import { Layout } from '../Layout/Layout';
-import { Cat } from "../Category/CatMain/CategoryMain";
 import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
 
 import { GlobalProvider } from "../../context/GlobalStates";
@@ -16,10 +15,13 @@ export function App() {
         <GlobalProvider> {/*Added the provider as a separate element no to mess the layout*/}
             <Router>
                 <Routes>
-                    <Route exact path="/" element={<Layout/>}>
-                        <Route exact path="/" element={<MainPage/>}/>
-                        <Route path="/Overview" element={<OverviewPage/>}/>
-                        <Route path="/Cat/:catName" element={<CategoryPage />}/>
+                    <Route exact path="/" element={<Layout />}>
+                        <Route exact path="/" element={<MainPage />}/>
+                        <Route path="/Overview" element={<OverviewPage />} />
+                        <Route path="/Cat">
+                            <Route path="/Cat/:id" element={<CategoryPage />} />
+                            <Route path="/Cat/*" element={<Navigate replace to={"/Cat"}/>} />
+                        </Route>
                         <Route path="/NewExpense" element={<NewExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>

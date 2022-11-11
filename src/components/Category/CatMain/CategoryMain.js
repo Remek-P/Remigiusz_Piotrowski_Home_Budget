@@ -14,11 +14,11 @@ export function Cat() {
     const currentDate = new Date();
     const currentYear = (currentDate.getFullYear()).toString(10);
     const currentMonth = currentYear+(currentDate.getMonth() + 1).toString(10);
-
+    //TODO: change the code to take transaction category and month, so I don't need to copy the transactions array
     const sortedTransactions = ([...transactions].sort((a, b) => b.month - a.month))
     const data = sortedTransactions.map(transaction => transaction.category);
-    const filtered = data.filter((item,index) => data.indexOf(item) === index)
-    console.log(filtered)
+    let filtered = data.filter((item,index) => data.indexOf(item) === index)
+
     return (
         <ul>
             {filtered.map((transaction, index) => <li key={index}>

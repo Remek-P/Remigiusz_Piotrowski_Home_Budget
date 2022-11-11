@@ -1,7 +1,7 @@
 import React from "react";
 import {Calculator} from "../../../../Calculators/Calculator";
 
-export function OverviewDetailsSummupCurrentMonth() {
+export function OverviewDetailsSummupCurrentMonth({ catName }) {
 
     //Formatting date so the Calculator.js can compare months by month of current year
     const currentDate = new Date();
@@ -11,7 +11,7 @@ export function OverviewDetailsSummupCurrentMonth() {
     return (
         <h5 className={"overview-details-summup__header"}>This month
             <div className={"overview-details-summup__values"}>
-                <Calculator parentMonth={currentMonth} />
+                <Calculator parentMonth={currentMonth} parentCategory={catName}/>
                 {/*TODO: change to currencySign for global control*/}
                 zł
             </div>
