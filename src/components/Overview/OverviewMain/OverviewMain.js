@@ -18,7 +18,6 @@ export function OverviewMain() {
                         <div className={"overview-components-container"}>
                             <OverviewSumUp/>
                         </div>
-                        {/*<div className={"pseudo-button"}>view history</div>*/}
                     </div>
                 </CardActionArea>
             </p>

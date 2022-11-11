@@ -1,6 +1,6 @@
 import React from "react";
 
-export function OverviewDetailsExpenseValue({ transaction }) {
+export function DetailsExpenseValue({ transaction }) {
 
     //TODO: add income handling
     //For future feature income

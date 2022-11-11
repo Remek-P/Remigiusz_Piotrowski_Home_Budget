@@ -47,7 +47,7 @@ export function Cat() {
     )
 }
 
-//Cats are generated based on categories from GlobalState, but not grouped (need reduce)
+//TODO: better sorting, by month is problematic whe we retroadd sth. double sorting or new var, but the date is currently formated without 0 for single days (6 isntead of 06)
 
 
 

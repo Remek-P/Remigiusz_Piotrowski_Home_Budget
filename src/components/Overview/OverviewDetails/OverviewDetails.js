@@ -1,8 +1,8 @@
 import React from "react";
-import {OverviewDetailsSummupCurrentMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupCurrentMonth";
-import {OverviewDetailsSummupPreviousMonth} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupPreviousMonth";
-import {OverviewDetailsSummupM2MPercentage} from "./OverviewDetails-Components/Summup/OverviewDetailsSummupM2MPercentage";
-import {ExpensesList} from "./OverviewDetails-Components/ExpensesList/ExpensesList";
+import {DetailsSummupCurrentMonth} from "../../Details-Components/Summup/DetailsSummupCurrentMonth";
+import {DetailsSummupPreviousMonth} from "../../Details-Components/Summup/DetailsSummupPreviousMonth";
+import {DetailsSummupM2MPercentage} from "../../Details-Components/Summup/DetailsSummupM2MPercentage";
+import {ExpensesList} from "../../Details-Components/ExpensesList/ExpensesList";
 
 export function OverviewDetails({catName}) {
 
@@ -15,13 +15,13 @@ export function OverviewDetails({catName}) {
                 <h3 className={"overview-details__header"}>{sectionName}</h3>
                 <ul className={"overview-details-summup"}>
                     <li>
-                        <OverviewDetailsSummupCurrentMonth catName={catName} />
+                        <DetailsSummupCurrentMonth catName={catName} />
                     </li>
                     <li>
-                        <OverviewDetailsSummupPreviousMonth catName={catName} />
+                        <DetailsSummupPreviousMonth catName={catName} />
                     </li>
                     <li>
-                        <OverviewDetailsSummupM2MPercentage catName={catName} />
+                        <DetailsSummupM2MPercentage catName={catName} />
                     </li>
                 </ul>
                 <ul>
