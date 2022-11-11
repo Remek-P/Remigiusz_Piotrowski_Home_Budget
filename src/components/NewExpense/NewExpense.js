@@ -26,7 +26,7 @@ export function NewExpense() {
     //Setting the month state as year and month string to use it for filtering.
     useEffect(() => {
         setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
-    })
+    },[date])
 
     const onSubmit = e => {
         e.preventDefault();

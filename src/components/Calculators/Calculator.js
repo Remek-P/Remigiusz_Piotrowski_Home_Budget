@@ -27,5 +27,4 @@ export function Calculator({parentMonth, parentCategory}) {
     }
 }
 
-//TODO: filtering by full month, now by hardcoded number (string)
-//TODO: Fi
+//TODO: Filtering by chosen month
