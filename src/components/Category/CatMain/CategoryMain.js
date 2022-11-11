@@ -9,10 +9,15 @@ import {GlobalContext} from "../../../context/GlobalStates";
 export function Cat() {
 
     const {transactions} = useContext(GlobalContext)
-    const currentMonth = (new Date().getMonth() + 1).toString(10);
-    const data = transactions.map(transaction => transaction.category)
-    let filtered = data.filter((item,index) => data.indexOf(item) === index)
 
+    //Formatting date so the Calculator.js can compare months by month of current year
+    const currentDate = new Date();
+    const currentYear = (currentDate.getFullYear()).toString(10);
+    const currentMonth = currentYear+(currentDate.getMonth() + 1).toString(10);
+
+    const data = transactions.map(transaction => transaction.category);
+    let filtered = data.filter((item,index) => data.indexOf(item) === index)
+    console.log(filtered)
     return (
         <ul>
             {filtered.map((transaction, index) => <li key={index}>

@@ -26,7 +26,11 @@ export function OverviewDetails() {
                     </li>
                 </ul>
                 <ul>
-                    {transactions.map(transaction => <li key={transaction.id} className={"overview-details-expense"}>
+                    {transactions
+                        //Sorting by month (y+m) all the transactions
+                        .sort((a, b) => b.month - a.month)
+                        //Mapping of single transaction from all the transactions, to display them one by one
+                        .map(transaction => <li key={transaction.id} className={"overview-details-expense"}>
                     <OverviewDetailsExpenseDate transaction={transaction} />
                     <article className={"overview-details-expense__container"}>
                         <OverviewDetailsExpenseName transaction={transaction} />

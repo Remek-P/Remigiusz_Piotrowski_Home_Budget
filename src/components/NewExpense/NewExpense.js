@@ -6,14 +6,16 @@ import {GlobalContext} from "../../context/GlobalStates";
 export function NewExpense() {
 
     const { addTransaction, transactions } = useContext(GlobalContext);
-    const d = new Date().toString()
+
+    //Sort transactions array by id number and return descending
     const sortedTransactions = ([...transactions].sort((a, b) => b.id - a.id)) || 0;
+    //Attributing new transaction id, by setting id's initial state - if the array is empty set as 1, if not by adding 1 to the first (greatest) id taken from (const) sortedTransactions
     const currentID = sortedTransactions[0] !== undefined ? sortedTransactions[0].id + 1 : 1;
 
     const [ id,         setID       ] = useState(currentID);
     const [ name,       setName     ] = useState("");
     const [ month,      setMonth    ] = useState("")
-    const [ date,       setDate     ] = useState(d);
+    const [ date,       setDate     ] = useState("");
     const [ value,      setValue    ] = useState("");
     //TODO: change currency to default PLN and add selection
     const [ currency,   setCurrency ] = useState("zł");
@@ -21,10 +23,10 @@ export function NewExpense() {
     const [ category,   setCategory ] = useState("");
     const [ notes,      setNotes    ] = useState("");
 
+    //Setting the month state as year and month string to use it for filtering.
     useEffect(() => {
         setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
-    },[date])
-
+    })
 
     const onSubmit = e => {
         e.preventDefault();
@@ -40,8 +42,6 @@ export function NewExpense() {
             category,
             notes,
         }
-        console.log(month)
-        console.log(date)
         addTransaction(newExpense)
     }
 
@@ -50,10 +50,6 @@ export function NewExpense() {
     //     const isPriceNumerical = regExNumerical.test(value);
     //     return isPriceNumerical ? event => setValue(event.target.value) : console.log("Only numerical values are allowed");
     // }
-
-    console.log(transactions)
-    console.log(sortedTransactions)
-
 
     return (
         <>
@@ -90,4 +86,4 @@ export function NewExpense() {
     )
 }
 
-//TODO: fix the dates formating for various components
+// TODO: code today date so the month state could use it;
