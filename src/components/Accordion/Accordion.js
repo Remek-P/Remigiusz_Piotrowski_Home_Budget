@@ -2,8 +2,6 @@ import * as React from 'react';
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import {DetailsDate} from "../Details-Components/TransactionsList/TransactionsDetails/DetailsDate";
 import {DetailsName} from "../Details-Components/TransactionsList/TransactionsDetails/DetailsName";
 import {DetailsValue} from "../Details-Components/TransactionsList/TransactionsDetails/DetailsValue";
@@ -11,8 +9,9 @@ import {DetailsCategory} from "../Details-Components/TransactionsList/AccordionE
 import {DetailsDescription} from "../Details-Components/TransactionsList/AccordionExpenseDetails/DetailsDescription";
 import {styled} from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
+import AlertDialogSlide from "../Buttons/AlertDialogSlide";
 
-export default function SimpleAccordion({ transaction} ) {
+export default function SimpleAccordion({ transaction }) {
 
     const Accordion = styled((props) => (
         <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -42,6 +41,7 @@ export default function SimpleAccordion({ transaction} ) {
                     <section>
                         <DetailsCategory transaction={transaction}/>
                         <DetailsDescription transaction={transaction}/>
+                        <AlertDialogSlide transaction={transaction}/>
                     </section>
                 </AccordionDetails>
             </Accordion>

@@ -3,7 +3,7 @@ export function AppReducer(state, action)  {
         case "Delete-transaction":
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction.id !== transaction.payload)
+                transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
             };
         // case "Delete-category":
         //     return {

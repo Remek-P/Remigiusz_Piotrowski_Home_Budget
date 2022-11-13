@@ -1,10 +1,6 @@
 import React, {useContext} from "react";
-import {DetailsDate} from "./TransactionsDetails/DetailsDate";
-import {DetailsName} from "./TransactionsDetails/DetailsName";
-import {DetailsValue} from "./TransactionsDetails/DetailsValue";
 import {GlobalContext} from "../../../context/GlobalStates";
 
-import Accordion from '@mui/material/Accordion';
 import SimpleAccordion from "../../Accordion/Accordion";
 
 export function TransactionsList({ catName }) {
@@ -19,7 +15,7 @@ export function TransactionsList({ catName }) {
     const picker = catName !== undefined ? filteredTransactions : sortedTransactions;
 
 
-    console.log(sortedTransactions)
+    console.log(sortedTransactions);
 
     return (
         <>

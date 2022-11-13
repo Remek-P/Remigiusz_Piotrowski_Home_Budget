@@ -24,7 +24,7 @@ export const GlobalProvider = ({ children }) => {
     function deleteTransaction(id) {
         dispatch({
             type: "Delete-transaction",
-            payload: id
+            payload: id,
         })
     }
     //TODO: check the props, to match the name
@@ -39,7 +39,7 @@ export const GlobalProvider = ({ children }) => {
     function addTransaction(transaction) {
         dispatch({
             type: "Add-transaction",
-            payload: transaction
+            payload: transaction,
         })
     }
 
