@@ -12,10 +12,18 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export default function AlertDialogSlide({ transaction }) {
+export default function AlertDialogSlideDelete({ transaction }) {
 
     const [open, setOpen] = React.useState(false);
     const { deleteTransaction } = useContext(GlobalContext)
+
+    const deleteButtonStyle = {px: "3rem", color: "#000", borderColor: "#000", borderRadius: "35px",
+        ':hover': {
+            borderColor: '#f44336',
+            backgroundColor: "#f44336",
+            color: '#fff',
+        }
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -31,8 +39,8 @@ export default function AlertDialogSlide({ transaction }) {
 
     return (
         <div>
-            <Button sx={{color: "#000", borderColor: "#000"}} variant="outlined" onClick={handleClickOpen}>
-                <Delete/>
+            <Button sx={deleteButtonStyle} variant="outlined" onClick={handleClickOpen}>
+                Delete
             </Button>
             <Dialog
                 open={open}
@@ -43,8 +51,8 @@ export default function AlertDialogSlide({ transaction }) {
             >
                 <DialogTitle>{"Do you want to delete the expense?"}</DialogTitle>
                 <DialogActions>
-                    <Button onClick={handleClose}>Cancel</Button>
-                    <Button onClick={handleDelete}>Yes</Button>
+                    <Button sx={{ color: 'text.secondary' }} onClick={handleClose}>Cancel</Button>
+                    <Button sx={{ color: 'error.main' }} onClick={handleDelete}>Yes</Button>
                 </DialogActions>
             </Dialog>
         </div>

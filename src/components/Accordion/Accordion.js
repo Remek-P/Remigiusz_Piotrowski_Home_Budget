@@ -9,7 +9,8 @@ import {DetailsCategory} from "../Details-Components/TransactionsList/AccordionE
 import {DetailsDescription} from "../Details-Components/TransactionsList/AccordionExpenseDetails/DetailsDescription";
 import {styled} from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
-import AlertDialogSlide from "../Buttons/AlertDialogSlide";
+import AlertDialogSlideDelete from "../Buttons/AlertDialogSlide(Delete)";
+import {EditTransaction} from "../Buttons/EditTransaction";
 
 export default function SimpleAccordion({ transaction }) {
 
@@ -39,9 +40,16 @@ export default function SimpleAccordion({ transaction }) {
                 </AccordionSummary>
                 <AccordionDetails>
                     <section>
+                        {/*Category of transaction*/}
                         <DetailsCategory transaction={transaction}/>
+                        {/*Description of transaction*/}
                         <DetailsDescription transaction={transaction}/>
-                        <AlertDialogSlide transaction={transaction}/>
+                        <div className={"accordion-details-buttons"}>
+                        {/*Edit Button*/}
+                        <EditTransaction transaction={transaction}/>
+                        {/*Delete Button*/}
+                        <AlertDialogSlideDelete transaction={transaction}/>
+                        </div>
                     </section>
                 </AccordionDetails>
             </Accordion>
