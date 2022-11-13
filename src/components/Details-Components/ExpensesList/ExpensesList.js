@@ -4,6 +4,8 @@ import {DetailsExpenseName} from "./ExpenseDetails/DetailsExpenseName";
 import {DetailsExpenseValue} from "./ExpenseDetails/DetailsExpenseValue";
 import {GlobalContext} from "../../../context/GlobalStates";
 
+import Accordion from '@mui/material/Accordion';
+
 export function ExpensesList({ catName }) {
 
     const { transactions } = useContext(GlobalContext);
@@ -22,7 +24,8 @@ export function ExpensesList({ catName }) {
         <>
             {picker
                 //Mapping of single transaction from all the transactions, to display them one by one
-                .map(transaction => <li key={transaction.id} className={"overview-details-expense"}>
+                .map(transaction =>
+                    <li key={transaction.id} className={"overview-details-expense"}>
                     <DetailsExpenseDate transaction={transaction} />
                     <article className={"overview-details-expense__container"}>
                         <DetailsExpenseName transaction={transaction} />
