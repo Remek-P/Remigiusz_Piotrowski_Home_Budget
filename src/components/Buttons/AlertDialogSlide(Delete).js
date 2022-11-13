@@ -4,7 +4,6 @@ import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
-import {Delete} from "@mui/icons-material";
 import {useContext} from "react";
 import {GlobalContext} from "../../context/GlobalStates";
 
@@ -15,9 +14,14 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export default function AlertDialogSlideDelete({ transaction }) {
 
     const [open, setOpen] = React.useState(false);
-    const { deleteTransaction } = useContext(GlobalContext)
+    const { deleteTransaction } = useContext(GlobalContext);
 
-    const deleteButtonStyle = {px: "3rem", color: "#000", borderColor: "#000", borderRadius: "35px",
+    const deleteButtonStyle = {fontSize: "0.875rem",
+        lineHeight: "1.0625rem",
+        px: "3.5rem",
+        color: "#000",
+        borderColor: "#000",
+        borderRadius: "35px",
         ':hover': {
             borderColor: '#f44336',
             backgroundColor: "#f44336",

@@ -5,11 +5,15 @@ export function AppReducer(state, action)  {
                 ...state,
                 transactions: state.transactions.filter(transaction => transaction.id !== action.payload)
             };
-        // case "Delete-category":
-        //     return {
-        //         ...state,
-        //         transactions: state.transactions.filter(transaction => transaction.id !== transaction.payload)
-        //     };
+        case "Delete-category":
+            return {
+                ...state,
+                transactions: state.transactions.filter(transaction => transaction.category !== action.payload)
+            };
+        case "Delete-All-Transactions":
+            return {
+                transactions: [],
+            };
         case "Add-transaction":
             return {
                 ...state,

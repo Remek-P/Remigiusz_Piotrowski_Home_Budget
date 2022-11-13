@@ -14,9 +14,6 @@ export function TransactionsList({ catName }) {
     //Checking if Category (filtering) or All expenses (without filtering) transactions should be displayed
     const picker = catName !== undefined ? filteredTransactions : sortedTransactions;
 
-
-    console.log(sortedTransactions);
-
     return (
         <>
             {picker

@@ -2,12 +2,12 @@ import React, { createContext, useReducer} from "react";
 import { AppReducer } from "./AppReducer";
 const initialState = {
     transactions: [
-        {id: 1, name: "game", date: "2022-11-1", month: "202211", value: 2000, currency: "zł", category: "gaming", note: "present for my birthday"},
-        {id: 2, name: "bread", date: "2022-10-1", month: "202210", value: 20, currency: "$", category: "gaming", note: "present for my birthday"},
-        {id: 3, name: "ticket", date: "2022-11-3", month: "202211", value: 2000, currency: "zł", category: "gaming", note: "present for my birthday"},
-        {id: 4, name: "phone", date: "2022-11-4", month: "202211", value: 2000, currency: "$", category: "my", note: "present for my birthday"},
-        {id: 5, name: "racs", date: "2022-11-5", month: "202211", value: 10, currency: "zł", category: "trips", note: "present for my birthday"},
-        {id: 6, name: "PS5", date: "2022-11-6", month: "202211", value: 10, currency: "zł", category: "home", note: "present for my birthday"},
+        {id: 1, name: "game", date: "2022-11-1", month: "202211", value: 2000, currency: "zł", category: "gaming", notes: "present for my birthday"},
+        {id: 2, name: "bread", date: "2022-10-1", month: "202210", value: 20, currency: "$", category: "gaming", notes: "present for my birthday"},
+        {id: 3, name: "ticket", date: "2022-11-3", month: "202211", value: 2000, currency: "zł", category: "gaming", notes: "present for my birthday"},
+        {id: 4, name: "phone", date: "2022-11-4", month: "202211", value: 2000, currency: "$", category: "my", notes: "present for my birthday"},
+        {id: 5, name: "racs", date: "2022-11-5", month: "202211", value: 10, currency: "zł", category: "trips", notes: "present for my birthday"},
+        {id: 6, name: "PS5", date: "2022-11-6", month: "202211", value: 10, currency: "zł", category: "home", notes: "present for my birthday"},
     ],
     //TODO: why undefined?
     currencySign: [
@@ -29,12 +29,17 @@ export const GlobalProvider = ({ children }) => {
     }
     //TODO: check the props, to match the name
 
-    // function deleteCategory(catName) {
-    //     dispatch({
-    //         type: "Delete-category",
-    //         payload: catName
-    //     })
-    // }
+    function deleteCategory(catName) {
+        dispatch({
+            type: "Delete-category",
+            payload: catName
+        })
+    }
+    function deleteAllTransactions() {
+        dispatch({
+            type: "Delete-All-Transactions",
+        })
+    }
 
     function addTransaction(transaction) {
         dispatch({
@@ -51,7 +56,8 @@ export const GlobalProvider = ({ children }) => {
                 transactions: state.transactions,
                 currencySign: state.currencySign,
                 deleteTransaction,
-                // deleteCategory,
+                deleteCategory,
+                deleteAllTransactions,
                 addTransaction
         }}>
             {children}

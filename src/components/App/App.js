@@ -1,5 +1,5 @@
 import React from "react";
-import {BrowserRouter as Router, Routes, Route, Navigate, useParams} from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { MainPage } from "../../pages/main/MainPage";
 import { Layout } from '../Layout/Layout';
 import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
@@ -7,7 +7,7 @@ import { NewExpensePage } from "../../pages/newExpensePage/NewExpensePage";
 import { GlobalProvider } from "../../context/GlobalStates";
 import { OverviewPage } from "../../pages/overview/OverviewPage";
 import { MissingPage } from "../../pages/missingPage/MissingPage";
-import {CategoryPage} from "../../pages/categoryPage/CategoryPage";
+import { CategoryPage } from "../../pages/categoryPage/CategoryPage";
 
 export function App() {
 

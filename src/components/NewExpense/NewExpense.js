@@ -65,7 +65,7 @@ export function NewExpense() {
                 </div>
                 <div>
                     <label htmlFor="amount">What was the value?</label>
-                    <input required={false} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type the amount"}/>
+                    <input required={false} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type amount"}/>
                 </div>
                 <div>
                     <label htmlFor="text">What was the currency?</label>
