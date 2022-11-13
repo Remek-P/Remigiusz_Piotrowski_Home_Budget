@@ -1,5 +1,5 @@
-import React, {useContext} from "react";
-import {GlobalContext} from "../../context/GlobalStates";
+import React, { useContext } from "react";
+import { GlobalContext } from "../../context/GlobalStates";
 import { useNavigate } from "react-router-dom";
 
 import Button from "@mui/material/Button";
@@ -19,6 +19,17 @@ export function CategoryName({ catName }) {
     const navigate = useNavigate();
 
     const sectionName = catName !== undefined ? catName : "All expenses";
+
+    const buttonStyle = {
+        padding: 0,
+        fontSize: "1.125rem",
+        lineHeight: "1.375rem",
+        fontWeight: 800,
+        color: "#000",
+        ':hover': {
+            backgroundColor: "transparent",
+        }
+    }
 
     const handleClickOpen = () => {
         setOpen(true);
@@ -41,7 +52,7 @@ export function CategoryName({ catName }) {
 
     return (
         <>
-            <Button onClick={handleClickOpen}>
+            <Button sx={buttonStyle} onClick={handleClickOpen}>
                 {sectionName}
             </Button>
             <Dialog
