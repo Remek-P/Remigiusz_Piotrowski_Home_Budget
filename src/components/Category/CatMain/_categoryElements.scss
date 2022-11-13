@@ -29,8 +29,9 @@
 
 .category-details-container {
   display: flex;
+  justify-content: space-between;
   gap: 15%;
-  padding: 4% 1% 1% 7%;
+  padding: 4% 30% 1% 7%;
   font-size: $font-size-cat-main;
   font-weight: $font-weight-regular;
 }

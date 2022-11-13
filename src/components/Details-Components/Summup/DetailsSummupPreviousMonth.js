@@ -8,8 +8,6 @@ export function DetailsSummupPreviousMonth({ catName }) {
     const currentYear = (currentDate.getFullYear()).toString(10);
     const previousMonth = currentYear+(currentDate.getMonth()).toString(10);
 
-    console.log(previousMonth)
-
     return (
         <h5 className={"overview-details-summup__header"}>Prev. month
             <div className={"overview-details-summup__values"}>
