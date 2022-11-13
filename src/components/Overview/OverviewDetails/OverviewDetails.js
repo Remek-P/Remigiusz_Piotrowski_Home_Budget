@@ -2,7 +2,7 @@ import React from "react";
 import {DetailsSummupCurrentMonth} from "../../Details-Components/Summup/DetailsSummupCurrentMonth";
 import {DetailsSummupPreviousMonth} from "../../Details-Components/Summup/DetailsSummupPreviousMonth";
 import {DetailsSummupM2MPercentage} from "../../Details-Components/Summup/DetailsSummupM2MPercentage";
-import {ExpensesList} from "../../Details-Components/ExpensesList/ExpensesList";
+import {TransactionsList} from "../../Details-Components/TransactionsList/TransactionsList";
 
 export function OverviewDetails({catName}) {
 
@@ -25,7 +25,7 @@ export function OverviewDetails({catName}) {
                     </li>
                 </ul>
                 <ul>
-                    <ExpensesList catName={catName} />
+                    <TransactionsList catName={catName} />
                 </ul>
             </section>
     )

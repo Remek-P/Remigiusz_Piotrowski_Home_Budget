@@ -1,7 +1,7 @@
 import React from "react";
 
 
-export function DetailsExpenseDate({ transaction }) {
+export function DetailsDate({ transaction }) {
 
     return (
         <h5 className={"overview-details-expense__header"}>{transaction.date}

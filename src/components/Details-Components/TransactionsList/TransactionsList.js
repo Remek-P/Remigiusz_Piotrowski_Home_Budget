@@ -1,12 +1,13 @@
 import React, {useContext} from "react";
-import {DetailsExpenseDate} from "./ExpenseDetails/DetailsExpenseDate";
-import {DetailsExpenseName} from "./ExpenseDetails/DetailsExpenseName";
-import {DetailsExpenseValue} from "./ExpenseDetails/DetailsExpenseValue";
+import {DetailsDate} from "./TransactionsDetails/DetailsDate";
+import {DetailsName} from "./TransactionsDetails/DetailsName";
+import {DetailsValue} from "./TransactionsDetails/DetailsValue";
 import {GlobalContext} from "../../../context/GlobalStates";
 
 import Accordion from '@mui/material/Accordion';
+import SimpleAccordion from "../../Accordion/Accordion";
 
-export function ExpensesList({ catName }) {
+export function TransactionsList({ catName }) {
 
     const { transactions } = useContext(GlobalContext);
 
@@ -25,13 +26,10 @@ export function ExpensesList({ catName }) {
             {picker
                 //Mapping of single transaction from all the transactions, to display them one by one
                 .map(transaction =>
-                    <li key={transaction.id} className={"overview-details-expense"}>
-                    <DetailsExpenseDate transaction={transaction} />
-                    <article className={"overview-details-expense__container"}>
-                        <DetailsExpenseName transaction={transaction} />
-                        <DetailsExpenseValue transaction={transaction} />
-                    </article>
-                </li>)}
+                    <SimpleAccordion key={transaction.id} transaction={transaction}
+                    />
+                )
+            }
         </>
     )
 }
