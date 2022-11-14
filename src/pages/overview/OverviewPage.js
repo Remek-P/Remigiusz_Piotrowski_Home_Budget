@@ -1,11 +1,11 @@
 import React from "react";
-import {OverviewDetails} from "../../components/Overview/OverviewDetails/OverviewDetails";
+import {Details} from "../../components/Details/Details";
 import {FAB} from "../../components/FAB/FAB";
 
 export function OverviewPage() {
     return (
         <>
-            <OverviewDetails />
+            <Details />
             <FAB />
         </>
     )

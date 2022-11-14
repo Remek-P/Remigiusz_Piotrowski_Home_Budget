@@ -8,7 +8,8 @@ export function AppReducer(state, action)  {
         case "Delete-category":
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction.category !== action.payload)
+                transactions: state.transactions.filter(transaction => transaction.category !== action.payload),
+                categoryList: state.categoryList.filter(category => category !== action.payload),
             };
         case "Delete-All-Transactions":
             return {
@@ -18,6 +19,7 @@ export function AppReducer(state, action)  {
             return {
                 ...state,
                 transactions: [action.payload, ...state.transactions],
+                categoryList: [action.payload.category, ...state.categoryList] .filter((item,index) => [action.payload.category, ...state.categoryList].indexOf(item) === index)
             }
         default:
             return state;

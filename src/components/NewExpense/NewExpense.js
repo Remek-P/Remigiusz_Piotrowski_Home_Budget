@@ -5,7 +5,7 @@ import {GlobalContext} from "../../context/GlobalStates";
 
 export function NewExpense() {
 
-    const { addTransaction, transactions } = useContext(GlobalContext);
+    const { addTransaction, transactions, categoryList } = useContext(GlobalContext);
 
     //Sort transactions array by id number and return descending
     const sortedTransactions = ([...transactions].sort((a, b) => b.id - a.id)) || 0;
@@ -27,6 +27,8 @@ export function NewExpense() {
     useEffect(() => {
         setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
     },[date])
+
+    console.log(categoryList)
 
     const onSubmit = event => {
         event.preventDefault();
@@ -64,8 +66,8 @@ export function NewExpense() {
                     <input type="date" value={date} onChange={event => setDate(event.target.value)} placeholder={"Type the date"}/>
                 </div>
                 <div>
-                    <label htmlFor="amount">What was the value?</label>
-                    <input required={false} type="amount" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type amount"}/>
+                    <label htmlFor="number">What was the value?</label>
+                    <input required={false} type="number" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type amount"}/>
                 </div>
                 <div>
                     <label htmlFor="text">What was the currency?</label>
@@ -78,12 +80,10 @@ export function NewExpense() {
                 </div>
                 <div>
                     <label htmlFor="textarea">Add note?</label>
-                    <input type="textarea" value={notes} onChange={event => setNotes(event.target.value)} autoCorrect={"on"} placeholder={"Type a note"}/>
+                    <input type="textarea" value={notes} onChange={event => setNotes(event.target.value)} autoCorrect={"on"}  placeholder={"Type a note"}/>
                 </div>
                 <button>Add Expense</button>
             </form>
         </>
     )
 }
-
-// TODO: code today date so the month state could use it;

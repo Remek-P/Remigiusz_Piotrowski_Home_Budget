@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function CategoryName({ catName }) {
+export function DeleteCategory({ catName }) {
 
     const [open, setOpen] = React.useState(false);
     const { deleteCategory, deleteAllTransactions } = useContext(GlobalContext);
@@ -22,9 +22,6 @@ export function CategoryName({ catName }) {
 
     const buttonStyle = {
         padding: 0,
-        fontSize: "1.125rem",
-        lineHeight: "1.375rem",
-        fontWeight: 800,
         color: "#000",
         ':hover': {
             backgroundColor: "transparent",
@@ -53,7 +50,7 @@ export function CategoryName({ catName }) {
     return (
         <>
             <Button sx={buttonStyle} onClick={handleClickOpen}>
-                {sectionName}
+                Delete {sectionName}
             </Button>
             <Dialog
                 open={open}

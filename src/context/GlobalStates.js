@@ -1,4 +1,4 @@
-import React, { createContext, useReducer} from "react";
+import React, {createContext, useReducer,} from "react";
 import { AppReducer } from "./AppReducer";
 const initialState = {
     transactions: [
@@ -9,11 +9,17 @@ const initialState = {
         {id: 5, name: "racs", date: "2022-11-5", month: "202211", value: 10, currency: "zł", category: "trips", notes: "present for my birthday"},
         {id: 6, name: "PS5", date: "2022-11-6", month: "202211", value: 10, currency: "zł", category: "home", notes: "present for my birthday"},
     ],
+    categoryList: ["gaming", "my", "trips", "home"],
     //TODO: why undefined?
     currencySign: [
         {dollar: "$", pln: "zł"}
         ],
 };
+
+// let catList = [...initialState.transactions.map(transaction => transaction.category).filter((item,index) => initialState.transactions.map(transaction => transaction.category).indexOf(item) === index)];
+
+
+// console.log(categoryList);
 
 export const GlobalContext = createContext(initialState);
 
@@ -48,6 +54,22 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
+    //TODO: create function for editing
+
+    // function editTransaction(transaction) {
+    //     dispatch({
+    //         type: "Edit-transaction",
+    //         payload: transaction,
+    //     })
+    // }
+    //
+    // function editCategoryName(transaction) {
+    //     dispatch({
+    //         type: "Edit-transaction",
+    //         payload: transaction,
+    //     })
+    // }
+
     //TODO: check the props, to match the name
 
     return (
@@ -55,6 +77,7 @@ export const GlobalProvider = ({ children }) => {
             value={{
                 transactions: state.transactions,
                 currencySign: state.currencySign,
+                categoryList: state.categoryList,
                 deleteTransaction,
                 deleteCategory,
                 deleteAllTransactions,

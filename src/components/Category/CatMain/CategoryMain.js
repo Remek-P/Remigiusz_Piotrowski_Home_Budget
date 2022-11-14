@@ -6,7 +6,7 @@ import {CategorySumUp} from "./CategoryOverviewComponents/Category-sum-up";
 import {CategoryPercentage} from "./CategoryOverviewComponents/Category-precentage";
 import {GlobalContext} from "../../../context/GlobalStates";
 
-export function Cat() {
+export function CategoryMain() {
 
     const {transactions} = useContext(GlobalContext)
 
@@ -22,11 +22,11 @@ export function Cat() {
     return (
         <ul>
             {filtered.map((transaction, index) => <li key={index}>
-                <NavLink to={`/Cat/${transaction}`}>
+                <NavLink to={`/CategoryMain/${transaction}`}>
                     <p className={"category-main"}>
                         <CardActionArea sx={{margin: 0, padding: 0}}>
                             <div className={"category-main-container"}>
-                                <CategoryHeader transaction={transaction}/>
+                                <CategoryHeader catName={transaction}/>
                                 <div className={"category-details-container"}>
                                     <CategorySumUp
                                         transaction={transaction}

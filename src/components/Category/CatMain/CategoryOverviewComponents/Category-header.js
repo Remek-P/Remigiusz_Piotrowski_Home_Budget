@@ -1,9 +1,9 @@
 import React from 'react';
 
-export function CategoryHeader({ transaction }) {
+export function CategoryHeader({ catName }) {
     return (
             <h3 className={"category-main__header"}>
-                {transaction}
+                {catName}
             </h3>
     );
 }

@@ -1,16 +1,22 @@
-import React from "react";
-import {useParams} from "react-router-dom";
+import React, {useContext} from "react";
+import {Link, useParams} from "react-router-dom";
 
 import {FAB} from "../../components/FAB/FAB";
-import {OverviewDetails} from "../../components/Overview/OverviewDetails/OverviewDetails";
+import {Details} from "../../components/Details/Details";
+import {GlobalContext} from "../../context/GlobalStates";
 
 export function CategoryPage() {
 
-    let { id } = useParams()
-
+    let { id } = useParams();
+    const {categoryList} = useContext(GlobalContext)
+    console.log(categoryList)
     return (
         <>
-            <OverviewDetails catName={id} />
+            <Details catName={id}/>
+            {/*TODO: fix the routing*/}
+            {/*<ul>*/}
+            {/*    {categoryList.map(cat => <li><Link to={cat}/></li>)}*/}
+            {/*</ul>*/}
             <FAB />
         </>
     )
