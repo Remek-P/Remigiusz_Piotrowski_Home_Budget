@@ -3,8 +3,9 @@ import { styled } from '@mui/material/styles';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import {Delete, Edit, Sort} from "@mui/icons-material";
-import {DeleteCategory} from "./DeleteCategory";
+import { Delete, Edit, Sort } from "@mui/icons-material";
+import { DeleteCategory } from "./DeleteCategory";
+import { EditCategoryName } from "../Edit/EditCategoryName";
 
 
 //Overriding default styling for StyledMenu - MUI component
@@ -68,6 +69,11 @@ export default function MenuButton({ catName }) {
         setAnchorEl(null);
     };
 
+    //Choosing if Edit name button should be enabled
+    const enableEditName = sectionName !== "All expenses"
+        ? false
+        : false
+
     return (
         <div>
             {/*Menu Button displaying category name*/}
@@ -95,15 +101,15 @@ export default function MenuButton({ catName }) {
             >
                 {/*Sort button*/}
                 {/*TODO: implement sorting*/}
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem disableRipple>
                     <Sort />
                     Sort
                 </MenuItem>{
                 /*Edit button*/}
                 {/*TODO: implement editing*/}
-                <MenuItem onClick={handleClose} disableRipple>
+                <MenuItem disabled={enableEditName} disableRipple>
                     <Edit />
-                    Edit Name
+                    <EditCategoryName catName={catName}/>
                 </MenuItem>
                 {/*Delete category button with delete component */}
                 <MenuItem disableRipple>

@@ -1,7 +1,7 @@
 .overview-main {
   display: flex;
-  min-width: 89.33vw;
-  min-height: 20.79vh;
+  min-width: $overview-tile-width;
+  min-height: $overview-tile-height;
   margin-top: 0.88vh;
   margin-bottom: 0.88vh;
   box-shadow: rgba(0, 0, 0, 0.2) 0 3px 3px -2px, rgba(0, 0, 0, 0.14) 0 3px 4px 0px, rgba(0, 0, 0, 0.12) 0 1px 8px 0;

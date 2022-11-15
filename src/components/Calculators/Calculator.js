@@ -3,7 +3,7 @@ import {GlobalContext} from "../../context/GlobalStates";
 
 export function Calculator({parentMonth, parentCategory}) {
 
-    const {transactions, currencySign} = useContext(GlobalContext)
+    const { transactions } = useContext(GlobalContext)
 
     if (parentCategory === undefined) {
         return (

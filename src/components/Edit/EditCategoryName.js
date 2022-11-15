@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, {useContext, useState} from "react";
 import { GlobalContext } from "../../context/GlobalStates";
 import { useNavigate } from "react-router-dom";
 
@@ -7,25 +7,25 @@ import DialogTitle from "@mui/material/DialogTitle";
 import DialogActions from "@mui/material/DialogActions";
 import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
+import {Box, TextField} from "@mui/material";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function DeleteCategory({ catName }) {
+export function EditCategoryName({ catName }) {
 
     const [open, setOpen] = React.useState(false);
-    const { deleteCategory, deleteAllTransactions } = useContext(GlobalContext);
+    const [newCatName, setNewCatName] = useState("")
+    const { editCategory } = useContext(GlobalContext);
     const navigate = useNavigate();
-
-    const sectionName = catName !== undefined ? catName : "All expenses";
 
     const buttonStyle = {
         fontSize: "1rem",
         fontWeight: "400",
         lineHeight: "1.75rem",
         padding: 0,
-        color: "red",
+        color: "#000",
         border: "inherit",
         ':hover': {
             backgroundColor: "transparent",
@@ -40,21 +40,22 @@ export function DeleteCategory({ catName }) {
         setOpen(false);
     };
 
-    const handleDelete = () => {
-        if (sectionName === "All expenses") {
-            deleteAllTransactions();
-            navigate("/");
-        } else {
-            deleteCategory(catName);
-            navigate("/");
-        }
+    const handleInput = (event) => {
+            setNewCatName(event.target.value)
+    }
 
+    const handleSubmit = () => {
+        const categoryNameChange = {
+            catName,
+            newCatName,
+        }
+        editCategory(categoryNameChange)
     }
 
     return (
         <>
             <Button sx={buttonStyle} onClick={handleClickOpen}>
-                Delete {sectionName}
+                Rename
             </Button>
             <Dialog
                 open={open}
@@ -63,10 +64,22 @@ export function DeleteCategory({ catName }) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                <DialogTitle>{"Do you want to delete the category?"}</DialogTitle>
+                <DialogTitle>{"New category name"}</DialogTitle>
                 <DialogActions>
-                    <Button sx={{color: 'text.secondary'}} onClick={handleClose}>Cancel</Button>
-                    <Button sx={{color: 'error.main'}} onClick={handleDelete}>Yes</Button>
+                    <div style={{width: "100%", display: "flex", justifyContent: "space-around"}}>
+                    <Box
+                        sx={{
+                        width: "100%",
+                        }}
+                    >
+                        <TextField sx={{
+                            marginX: "1rem",
+                        }} variant={"standard"} onChange={handleInput}/>
+                    </Box>
+                    <Button onClick={handleSubmit}>
+                        Rename
+                    </Button>
+                    </div>
                 </DialogActions>
             </Dialog>
         </>

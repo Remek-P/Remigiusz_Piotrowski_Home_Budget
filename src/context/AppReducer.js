@@ -14,13 +14,20 @@ export function AppReducer(state, action)  {
         case "Delete-All-Transactions":
             return {
                 transactions: [],
+                categoryList: [],
             };
         case "Add-transaction":
             return {
                 ...state,
                 transactions: [action.payload, ...state.transactions],
-                categoryList: [action.payload.category, ...state.categoryList] .filter((item,index) => [action.payload.category, ...state.categoryList].indexOf(item) === index)
+                categoryList: [action.payload.category, ...state.categoryList] .filter((item,index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
             }
+        case "Edit-category":
+            return {
+                ...state,
+                transactions: state.transactions.filter(transaction => transaction.category === action.payload.catName).map(category => category.category = action.payload.newCatName),
+                // categoryList: state.categoryList.filter(category => category === action.payload),
+            };
         default:
             return state;
     }

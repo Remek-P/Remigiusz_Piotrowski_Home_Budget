@@ -1,6 +1,6 @@
 import React from 'react';
 
-export function CategoryPercentage({ transaction, parentMonth }) {
+export function CategoryPercentage({ catName, parentMonth }) {
 
     return (
         <div className={"category-main__percentage"}>

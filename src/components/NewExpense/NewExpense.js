@@ -28,8 +28,6 @@ export function NewExpense() {
         setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
     },[date])
 
-    console.log(categoryList)
-
     const onSubmit = event => {
         event.preventDefault();
         setID((prevState) => prevState + 1);

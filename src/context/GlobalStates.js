@@ -11,9 +11,8 @@ const initialState = {
     ],
     categoryList: ["gaming", "my", "trips", "home"],
     //TODO: why undefined?
-    currencySign: [
-        {dollar: "$", pln: "zł"}
-        ],
+    currencySigns: ["$", "zł"],
+    defaultCurrencySign: [],
 };
 
 // let catList = [...initialState.transactions.map(transaction => transaction.category).filter((item,index) => initialState.transactions.map(transaction => transaction.category).indexOf(item) === index)];
@@ -54,21 +53,14 @@ export const GlobalProvider = ({ children }) => {
         })
     }
 
-    //TODO: create function for editing
+    function editCategory(categoryNameChange) {
+        dispatch({
+            type: "Add-transaction",
+            payload: categoryNameChange,
+        })
+    }
 
-    // function editTransaction(transaction) {
-    //     dispatch({
-    //         type: "Edit-transaction",
-    //         payload: transaction,
-    //     })
-    // }
-    //
-    // function editCategoryName(transaction) {
-    //     dispatch({
-    //         type: "Edit-transaction",
-    //         payload: transaction,
-    //     })
-    // }
+    //TODO: create function for editing
 
     //TODO: check the props, to match the name
 
@@ -81,7 +73,8 @@ export const GlobalProvider = ({ children }) => {
                 deleteTransaction,
                 deleteCategory,
                 deleteAllTransactions,
-                addTransaction
+                addTransaction,
+                editCategory,
         }}>
             {children}
         </GlobalContext.Provider>
