@@ -69,6 +69,11 @@ export default function MenuButton({ catName }) {
         setAnchorEl(null);
     };
 
+    const handleChildClose = () => {
+        const close = false
+        close === true ? setAnchorEl(null) : "";
+    }
+
     //Choosing if Edit name button should be enabled
     const enableEditName = sectionName === "All expenses"
 

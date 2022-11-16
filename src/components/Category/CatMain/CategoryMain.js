@@ -10,9 +10,6 @@ export function CategoryMain() {
 
     const {transactions, categoryList} = useContext(GlobalContext)
 
-    console.log(transactions);
-    console.log(categoryList);
-
     //Formatting date so the Calculator.js can compare months by month of current year
     const currentDate = new Date();
     const currentYear = (currentDate.getFullYear()).toString(10);
@@ -23,7 +20,11 @@ export function CategoryMain() {
     //Creating an array of categories
     const categoryArray = sortedTransactions.map(transaction => transaction.category);
     // Filtering created array for unique names
-    let uniqueCatArray = categoryArray.filter((item,index) => categoryArray.indexOf(item) === index)
+    let uniqueCatArray = categoryArray.filter((item,index) => categoryArray.indexOf(item) === index);
+
+    console.log(transactions);
+    console.log(categoryList);
+    console.log(sortedTransactions);
 
     return (
         <ul>

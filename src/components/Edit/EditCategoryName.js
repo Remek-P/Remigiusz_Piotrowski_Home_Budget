@@ -49,8 +49,9 @@ export function EditCategoryName({ catName }) {
             catName,
             newCatName,
         }
-        console.log(categoryNameChange)
         editCategory(categoryNameChange)
+        navigate(`/CategoryMain/${newCatName}`);
+        handleClose();
     }
 
     return (
