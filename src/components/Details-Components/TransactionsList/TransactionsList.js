@@ -17,7 +17,7 @@ export function TransactionsList({ catName }) {
     return (
         <>
             {picker
-                //Mapping of single transaction from all the transactions, to display them one by one
+                //Mapping of single transaction from all the transactions, to display them one by one in accordion (slide down details)
                 .map(transaction =>
                     <SimpleAccordion key={transaction.id} transaction={transaction}
                     />

@@ -70,9 +70,7 @@ export default function MenuButton({ catName }) {
     };
 
     //Choosing if Edit name button should be enabled
-    const enableEditName = sectionName !== "All expenses"
-        ? false
-        : false
+    const enableEditName = sectionName === "All expenses"
 
     return (
         <div>

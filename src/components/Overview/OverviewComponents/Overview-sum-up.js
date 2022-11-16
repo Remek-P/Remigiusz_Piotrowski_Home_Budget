@@ -16,3 +16,5 @@ export function OverviewSumUp() {
         </div>
     )
 }
+
+//TODO: currency sign

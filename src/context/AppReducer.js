@@ -9,10 +9,11 @@ export function AppReducer(state, action)  {
             return {
                 ...state,
                 transactions: state.transactions.filter(transaction => transaction.category !== action.payload),
-                categoryList: state.categoryList.filter(category => category !== action.payload),
+                categoryList: state.categoryList.filter(category => category !== action.payload.name),
             };
         case "Delete-All-Transactions":
             return {
+                ...state,
                 transactions: [],
                 categoryList: [],
             };
@@ -21,12 +22,22 @@ export function AppReducer(state, action)  {
                 ...state,
                 transactions: [action.payload, ...state.transactions],
                 categoryList: [action.payload.category, ...state.categoryList] .filter((item,index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
-            }
+            };
         case "Edit-category":
             return {
                 ...state,
-                transactions: state.transactions.filter(transaction => transaction.category === action.payload.catName).map(category => category.category = action.payload.newCatName),
-                // categoryList: state.categoryList.filter(category => category === action.payload),
+                transactions: state.transactions.map(record => {
+                    if (record.category === action.payload.catName) {
+                        record.category = action.payload.newCatName
+                    }
+                    return record
+                }),
+                categoryList: state.transactions.map(record => {
+                    if (record === action.payload.catName) {
+                        record = action.payload.newCatName
+                    }
+                    return record;
+                })
             };
         default:
             return state;

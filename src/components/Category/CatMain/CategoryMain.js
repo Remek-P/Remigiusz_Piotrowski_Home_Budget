@@ -8,7 +8,10 @@ import {GlobalContext} from "../../../context/GlobalStates";
 
 export function CategoryMain() {
 
-    const {transactions} = useContext(GlobalContext)
+    const {transactions, categoryList} = useContext(GlobalContext)
+
+    console.log(transactions);
+    console.log(categoryList);
 
     //Formatting date so the Calculator.js can compare months by month of current year
     const currentDate = new Date();

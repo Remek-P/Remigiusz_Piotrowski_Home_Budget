@@ -5,7 +5,7 @@ import {GlobalContext} from "../../../../context/GlobalStates";
 export function CategorySumUp({ catName, parentMonth }) {
 
 
-    const { currencySign } = useContext(GlobalContext);
+    // const { currencySign } = useContext(GlobalContext);
 
     return (
         <div className={"category-main__sum-up"}>
@@ -13,7 +13,7 @@ export function CategorySumUp({ catName, parentMonth }) {
                 parentCategory={catName}
                 parentMonth={parentMonth}
             />
-
+            zł
         </div>
     );
 }
