@@ -58,28 +58,49 @@ export function NewExpense() {
             <form onSubmit={onSubmit}>
                 <div>
                     <label htmlFor="text">What did you pay for?</label>
-                    <input required={false} type="text" value={name} onChange={event => setName(event.target.value)} autoCorrect={"on"} placeholder={"Type the name"}/>
+                    <input required={false}
+                           type="text" value={name}
+                           onChange={event => setName(event.target.value)}
+                           autoCorrect={"on"}
+                           placeholder={"Type the name"}/>
                 </div>
                 <div>
                     <label htmlFor="date">When was the payment made?</label>
-                    <input type="date" value={date} onChange={event => setDate(event.target.value)} placeholder={"Type the date"}/>
+                    <input type="date"
+                           value={date}
+                           onChange={event => setDate(event.target.value)}
+                           placeholder={"Type the date"}/>
                 </div>
                 <div>
                     <label htmlFor="number">What was the value?</label>
-                    <input required={false} type="number" value={value} onChange={event => setValue(event.target.value)} placeholder={"Type amount"}/>
+                    <input required={false}
+                           type="number" value={value}
+                           onChange={event => setValue(event.target.value)}
+                           placeholder={"Type amount"}/>
                 </div>
                 <div>
                     <label htmlFor="text">What was the currency?</label>
-                    <input required={false} type="text" value={currency} onChange={event => setCurrency(event.target.value)} placeholder={"Choose the currency"}/>
+                    <input required={false}
+                           type="text" value={currency}
+                           onChange={event => setCurrency(event.target.value)}
+                           placeholder={"Choose the currency"}/>
                 </div>
                 <div>
                     {/*TODO: making a component for category picking*/}
                     <label htmlFor="text">What is the category of the expense?</label>
-                    <input required={false} type="text" value={category} onChange={event => setCategory(event.target.value)} placeholder={"Choose a category"}/>
+                    <input required={false}
+                           type="text"
+                           value={category}
+                           onChange={event => setCategory(event.target.value)}
+                           placeholder={"Choose a category"}/>
                 </div>
                 <div>
                     <label htmlFor="textarea">Add note?</label>
-                    <input type="textarea" value={notes} onChange={event => setNotes(event.target.value)} autoCorrect={"on"}  placeholder={"Type a note"}/>
+                    <input type="textarea"
+                           value={notes}
+                           onChange={event => setNotes(event.target.value)}
+                           autoCorrect={"on"}
+                           placeholder={"Type a note"}/>
                 </div>
                 <button>Add Expense</button>
             </form>
