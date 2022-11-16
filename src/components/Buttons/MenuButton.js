@@ -4,6 +4,8 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import { Delete, Edit, Sort } from "@mui/icons-material";
+import VerticalAlignBottomIcon from '@mui/icons-material/VerticalAlignBottom';
+import VerticalAlignTopIcon from '@mui/icons-material/VerticalAlignTop';
 import { DeleteCategory } from "./DeleteCategory";
 import { EditCategoryName } from "../Edit/EditCategoryName";
 
@@ -39,7 +41,7 @@ const StyledMenu = styled((props) => (
     },
 }));
 
-//Overriding default styling for Menu Button (class name)  - MUI component
+//Overriding default styling for Menu Button - MUI component
 const buttonStyle = {
     padding: 0,
     fontSize: "1.125rem",
@@ -53,26 +55,35 @@ const buttonStyle = {
     }
 }
 
-export default function MenuButton({ catName }) {
+export default function MenuButton({ catName,sortByDateDescending, setSortByDateDescending }) {
 
-    //Default configuration for MUI component
+    //Default configuration for MUI component (open/close menu)
     const [anchorEl, setAnchorEl] = React.useState(null);
     const open = Boolean(anchorEl);
+
     //Picking the category name, if no category name is passed from parent component (undefined), display all expenses
     const sectionName = catName !== undefined ? catName : "All expenses";
 
-    //Button MUI on click handlers
+    //Button MUI on click tracking
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
+    //Open/close the menu (button)
     const handleClose = () => {
         setAnchorEl(null);
     };
 
-    const handleChildClose = () => {
-        const close = false
-        close === true ? setAnchorEl(null) : "";
+    const arrowDirection = sortByDateDescending === true
+        ? <VerticalAlignTopIcon />
+        : <VerticalAlignBottomIcon />
+
+    //Changing the setSortByDateDescending between true and false and sending it to TransactionList via Details (parent)
+    const sortTransactions = () => {
+        setSortByDateDescending(prevState => !prevState);
+        handleClose()
     }
+
+    console.log("MenuButton:", sortByDateDescending)
 
     //Choosing if Edit name button should be enabled
     const enableEditName = sectionName === "All expenses"
@@ -104,20 +115,20 @@ export default function MenuButton({ catName }) {
             >
                 {/*Sort button*/}
                 {/*TODO: implement sorting*/}
-                <MenuItem disableRipple>
+                <MenuItem onClick={sortTransactions} disableRipple>
                     <Sort />
-                    Sort
+                    Sort {arrowDirection}
                 </MenuItem>{
                 /*Edit button*/}
                 {/*TODO: implement editing*/}
                 <MenuItem disabled={enableEditName} disableRipple>
                     <Edit />
-                    <EditCategoryName catName={catName}/>
+                    <EditCategoryName setAnchorEl={setAnchorEl} catName={catName}/>
                 </MenuItem>
                 {/*Delete category button with delete component */}
                 <MenuItem disableRipple>
-                    <Delete />
-                    <DeleteCategory catName={catName}/>
+                    <Delete sx={{color: 'error.main'}} />
+                    <DeleteCategory setAnchorEl={setAnchorEl} catName={catName}/>
                 </MenuItem>
             </StyledMenu>
         </div>

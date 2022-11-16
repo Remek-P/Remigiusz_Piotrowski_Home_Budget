@@ -1,4 +1,6 @@
-export function AppReducer(state, action)  {
+import React from "react";
+
+export function AppReducer(state, action) {
     switch (action.type) {
         case "Delete-transaction":
             return {
@@ -21,7 +23,7 @@ export function AppReducer(state, action)  {
             return {
                 ...state,
                 transactions: [action.payload, ...state.transactions],
-                categoryList: [action.payload.category, ...state.categoryList] .filter((item,index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
+                categoryList: [action.payload.category, ...state.categoryList].filter((item, index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
             };
         case "Edit-category":
             return {

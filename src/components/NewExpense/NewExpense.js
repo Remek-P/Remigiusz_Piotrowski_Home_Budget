@@ -1,20 +1,19 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useState} from "react";
 import {GlobalContext} from "../../context/GlobalStates";
 
 //TODO: styling
 
 export function NewExpense() {
 
-    const { addTransaction, transactions, categoryList } = useContext(GlobalContext);
+    const { addTransaction, transactions } = useContext(GlobalContext);
 
-    //Sort transactions array by id number and return descending
+    //Sort transactions array by id number and return descending or 0
     const sortedTransactions = ([...transactions].sort((a, b) => b.id - a.id)) || 0;
     //Attributing new transaction id, by setting id's initial state - if the array is empty set as 1, if not by adding 1 to the first (greatest) id taken from (const) sortedTransactions
     const currentID = sortedTransactions[0] !== undefined ? sortedTransactions[0].id + 1 : 1;
 
     const [ id,         setID       ] = useState(currentID);
     const [ name,       setName     ] = useState("");
-    const [ month,      setMonth    ] = useState("")
     const [ date,       setDate     ] = useState("");
     const [ value,      setValue    ] = useState("");
     //TODO: change currency to default PLN and add selection
@@ -23,11 +22,12 @@ export function NewExpense() {
     const [ category,   setCategory ] = useState("");
     const [ notes,      setNotes    ] = useState("");
 
-    //Setting the month state as year and month string to use it for filtering.
-    useEffect(() => {
-        setMonth(date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2"))
-    },[date])
+    //Deriving month (y+m) variable from date state for sorting
+    let month = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2");
+    //Deriving day (y+m+d) variable from date state for sorting
+    let day = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2$3");
 
+    console.log(month)
     const onSubmit = event => {
         event.preventDefault();
         setID((prevState) => prevState + 1);
@@ -37,6 +37,7 @@ export function NewExpense() {
             name,
             date,
             month,
+            day,
             value: +value,
             currency,
             category,

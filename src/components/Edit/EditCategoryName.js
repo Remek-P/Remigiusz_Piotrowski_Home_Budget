@@ -9,17 +9,19 @@ import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import {Box, TextField} from "@mui/material";
 
+//Settings fot Transition MUI component
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function EditCategoryName({ catName }) {
+export function EditCategoryName({ catName, setAnchorEl }) {
 
     const [open, setOpen] = React.useState(false);
     const [newCatName, setNewCatName] = useState("")
     const { editCategory } = useContext(GlobalContext);
     const navigate = useNavigate();
 
+    //Overriding default button styles
     const buttonStyle = {
         fontSize: "1rem",
         fontWeight: "400",
@@ -32,26 +34,35 @@ export function EditCategoryName({ catName }) {
         }
     }
 
+    //Opening the dialog window
     const handleClickOpen = () => {
         setOpen(true);
     };
 
+    //Closing the dialog for window
     const handleClose = () => {
         setOpen(false);
     };
 
+    //Handling the input value
     const handleInput = (event) => {
             setNewCatName(event.target.value)
     }
 
     const handleSubmit = () => {
+        //Capturing old and new category name and assigning to state
         const categoryNameChange = {
             catName,
             newCatName,
         }
-        editCategory(categoryNameChange)
+        //Reducer function receives the names
+        editCategory(categoryNameChange);
+        //redirect to new category route
         navigate(`/CategoryMain/${newCatName}`);
+        //Closing the dialog window
         handleClose();
+        //Passing value to parent to close the menu
+        setAnchorEl(null)
     }
 
     return (

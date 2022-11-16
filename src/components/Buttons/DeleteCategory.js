@@ -12,7 +12,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
-export function DeleteCategory({ catName }) {
+export function DeleteCategory({ catName, setAnchorEl }) {
 
     const [open, setOpen] = React.useState(false);
     const { deleteCategory, deleteAllTransactions } = useContext(GlobalContext);
@@ -20,6 +20,7 @@ export function DeleteCategory({ catName }) {
 
     const sectionName = catName !== undefined ? catName : "All expenses";
 
+    //Overriding default button styles
     const buttonStyle = {
         fontSize: "1rem",
         fontWeight: "400",
@@ -32,23 +33,27 @@ export function DeleteCategory({ catName }) {
         }
     }
 
+    //Opening the dialog for window
     const handleClickOpen = () => {
         setOpen(true);
     };
 
+    //Opening the dialog for window
     const handleClose = () => {
         setOpen(false);
     };
 
+    // Choosing what to delete - if viewing All expenses, delete all transactions using deleteAllTransactions from reducer or delete just the category using deleteCategory. Then navigate to main page and set anchorEl to null (for cancel option)
     const handleDelete = () => {
         if (sectionName === "All expenses") {
             deleteAllTransactions();
             navigate("/");
+            setAnchorEl(null);
         } else {
             deleteCategory(catName);
             navigate("/");
+            setAnchorEl(null);
         }
-
     }
 
     return (
