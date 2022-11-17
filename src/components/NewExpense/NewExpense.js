@@ -84,21 +84,22 @@ export function NewExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="date">When was the payment made?</label>
-                    <input type="date"
+                    <input required={true}
+                           type="date"
                            value={date}
                            onChange={event => setDate(event.target.value)}
                            placeholder={"Type the date"}/>
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="number">What was the value?</label>
-                    <input required={false}
+                    <input required={true}
                            type="number" value={value}
                            onChange={event => setValue(event.target.value)}
                            placeholder={"Type amount"}/>
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="text">What was the currency?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text" value={currency}
                            onChange={event => setCurrency(event.target.value)}
                            placeholder={"Choose the currency"}/>
@@ -106,7 +107,7 @@ export function NewExpense() {
                 <div className={"expense__form-container"}>
                     {/*TODO: making a component for category picking*/}
                     <label htmlFor="text">What is the category of the expense?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text"
                            value={category}
                            onChange={event => setCategory(event.target.value)}

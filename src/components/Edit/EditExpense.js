@@ -56,7 +56,7 @@ export function EditExpense() {
             <form className={"expense__form"} onSubmit={onSubmit}>
                 <div className={"expense__form-container"}>
                     <label htmlFor="text">What did you pay for?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text" value={newName}
                            onChange={event => setNewName(event.target.value)}
                            autoCorrect={"on"}
@@ -64,21 +64,22 @@ export function EditExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="date">When was the payment made?</label>
-                    <input type="date"
+                    <input required={true}
+                           type="date"
                            value={newDate}
                            onChange={event => setNewDate(event.target.value)}
                            placeholder={"Type the date"}/>
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="number">What was the value?</label>
-                    <input required={false}
+                    <input required={true}
                            type="number" value={newValue}
                            onChange={event => setNewValue(event.target.value)}
                            placeholder={"Type amount"}/>
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="text">What was the currency?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text" value={newCurrency}
                            onChange={event => setNewCurrency(event.target.value)}
                            placeholder={"Choose the currency"}/>
@@ -86,7 +87,7 @@ export function EditExpense() {
                 <div className={"expense__form-container"}>
                     {/*TODO: making a component for category picking*/}
                     <label htmlFor="text">What is the category of the expense?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text"
                            value={newCategory}
                            onChange={event => setNewCategory(event.target.value)}
