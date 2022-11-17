@@ -26,5 +26,3 @@ export function Calculator({parentMonth, parentCategory}) {
         )
     }
 }
-
-//TODO: Filtering by chosen month

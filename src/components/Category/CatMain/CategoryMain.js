@@ -6,6 +6,8 @@ import {CategorySumUp} from "./CategoryOverviewComponents/Category-sum-up";
 import {CategoryPercentage} from "./CategoryOverviewComponents/Category-precentage";
 import {GlobalContext} from "../../../context/GlobalStates";
 
+//TODO: Add success alert after editing category transaction
+
 export function CategoryMain() {
 
     const {transactions, categoryList} = useContext(GlobalContext)
@@ -14,7 +16,7 @@ export function CategoryMain() {
     const currentDate = new Date();
     const currentYear = (currentDate.getFullYear()).toString(10);
     const currentMonth = currentYear+(currentDate.getMonth() + 1).toString(10);
-    //TODO: change the code to take transaction category and month, so I don't need to copy the transactions array
+
     //Sorting copied list of transactions by month variable
     const sortedTransactions = ([...transactions].sort((a, b) => b.month - a.month));
     //Creating an array of categories
@@ -49,8 +51,6 @@ export function CategoryMain() {
         </ul>
     )
 }
-
-//TODO: better sorting, by month is problematic whe we retroadd sth. double sorting or new var, but the date is currently formated without 0 for single days (6 isntead of 06)
 
 
 

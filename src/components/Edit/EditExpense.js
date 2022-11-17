@@ -7,13 +7,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 export function EditExpense() {
 
     const transaction = useLocation();
-    console.log(transaction)
 
     const navigate = useNavigate();
 
     const { editTransaction } = useContext(GlobalContext);
 
-    const [ newName,       setNewName     ] = useState((transaction.state.name).toString());
+    const [ newName,       setNewName     ] = useState((transaction.state.name));
     const [ newDate,       setNewDate     ] = useState(transaction.state.date);
     const [ newValue,      setNewValue    ] = useState(transaction.state.value);
     //TODO: change currency to default PLN and add selection

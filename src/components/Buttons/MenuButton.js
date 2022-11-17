@@ -112,13 +112,11 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
                 onClose={handleClose}
             >
                 {/*Sort button*/}
-                {/*TODO: implement sorting*/}
                 <MenuItem onClick={sortTransactions} disableRipple>
                     <Sort />
                     Sort {arrowDirection}
                 </MenuItem>{
                 /*Edit button*/}
-                {/*TODO: implement editing*/}
                 <MenuItem disabled={enableEditName} disableRipple>
                     <Edit />
                     <EditCategoryName setAnchorEl={setAnchorEl} catName={catName}/>
@@ -132,3 +130,5 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
         </div>
     );
 }
+
+//TODO: Improve sorting

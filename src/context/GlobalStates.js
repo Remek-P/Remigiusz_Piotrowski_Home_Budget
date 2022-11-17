@@ -10,7 +10,6 @@ const initialState = {
         {id: 6, name: "PS5", date: "2022-11-06", month: "202211", day: "20221106", value: 10, currency: "zł", category: "gaming", notes: "present for my birthday"},
     ],
     categoryList: ["gaming", "my", "trips", "home"],
-    //TODO: why undefined?
     currencySigns: ["$", "zł"],
     defaultCurrencySign: [],
 };
@@ -32,7 +31,6 @@ export const GlobalProvider = ({ children }) => {
             payload: id,
         })
     }
-    //TODO: check the props, to match the name
 
     function deleteCategory(catName) {
         dispatch({
@@ -66,9 +64,6 @@ export const GlobalProvider = ({ children }) => {
             payload: categoryNameChange,
         })
     }
-
-
-    //TODO: check the props, to match the name
 
     return (
         <GlobalContext.Provider
