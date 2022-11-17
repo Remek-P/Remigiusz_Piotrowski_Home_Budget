@@ -55,12 +55,15 @@ export function EditExpense() {
             <h2 className={"expense__header"}>Edit Expense</h2>
             <form className={"expense__form"} onSubmit={onSubmit}>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="text">What did you pay for?</label>
+                    <label htmlFor="name">What did you pay for?</label>
                     <input required={true}
                            type="text" value={newName}
                            onChange={event => setNewName(event.target.value)}
                            autoCorrect={"on"}
-                           placeholder={"Type the name"}/>
+                           placeholder={"Type the name"}
+                           name="name"
+                           id="name"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="date">When was the payment made?</label>
@@ -68,38 +71,53 @@ export function EditExpense() {
                            type="date"
                            value={newDate}
                            onChange={event => setNewDate(event.target.value)}
-                           placeholder={"Type the date"}/>
+                           placeholder={"Type the date"}
+                           name="date"
+                           id="date"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="number">What was the value?</label>
+                    <label htmlFor="value">What was the value?</label>
                     <input required={true}
                            type="number" value={newValue}
                            onChange={event => setNewValue(event.target.value)}
-                           placeholder={"Type amount"}/>
+                           placeholder={"Type amount"}
+                           name="value"
+                           id="value"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="text">What was the currency?</label>
+                    <label htmlFor="currency">What was the currency?</label>
                     <input required={true}
                            type="text" value={newCurrency}
                            onChange={event => setNewCurrency(event.target.value)}
-                           placeholder={"Choose the currency"}/>
+                           placeholder={"Choose the currency"}
+                           name="currency"
+                           id="currency"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: making a component for category picking*/}
-                    <label htmlFor="text">What is the category of the expense?</label>
+                    <label htmlFor="category">What is the category of the expense?</label>
                     <input required={true}
                            type="text"
                            value={newCategory}
                            onChange={event => setNewCategory(event.target.value)}
-                           placeholder={"Choose a category"}/>
+                           placeholder={"Choose a category"}
+                           name="category"
+                           id="category"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="textarea">Add note?</label>
+                    <label htmlFor="notes">Add note?</label>
                     <input type="textarea"
                            value={newNotes}
                            onChange={event => setNewNotes(event.target.value)}
                            autoCorrect={"on"}
-                           placeholder={"Type a note"}/>
+                           placeholder={"Type a note"}
+                           name="notes"
+                           id="notes"
+                    />
                 </div>
                 <button>Edit Expense</button>
             </form>

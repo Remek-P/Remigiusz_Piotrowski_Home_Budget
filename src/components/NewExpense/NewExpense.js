@@ -104,7 +104,7 @@ export function NewExpense() {
                            onChange={event => setValue(event.target.value)}
                            placeholder={"Type amount"}
                            name="value"
-                           id="date"
+                           id="value"
                     />
                 </div>
                 <div className={"expense__form-container"}>
@@ -114,7 +114,7 @@ export function NewExpense() {
                            onChange={event => setCurrency(event.target.value)}
                            placeholder={"Choose the currency"}
                            name="currency"
-                           id="date"
+                           id="currency"
                     />
                 </div>
                 <div className={"expense__form-container"}>
@@ -126,7 +126,7 @@ export function NewExpense() {
                            onChange={event => setCategory(event.target.value)}
                            placeholder={"Choose a category"}
                            name="category"
-                           id="date"
+                           id="category"
                     />
                 </div>
                 <div className={"expense__form-container"}>
@@ -137,7 +137,7 @@ export function NewExpense() {
                            autoCorrect={"on"}
                            placeholder={"Type a note"}
                            name="notes"
-                           id="date"
+                           id="notes"
                     />
                 </div>
                 <button>Add Expense</button>
