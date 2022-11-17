@@ -17,7 +17,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 export function EditCategoryName({ catName, setAnchorEl }) {
 
     const [open, setOpen] = React.useState(false);
-    const [newCatName, setNewCatName] = useState("")
+    const [newCatName, setNewCatName] = useState(catName)
     const { editCategory } = useContext(GlobalContext);
     const navigate = useNavigate();
 
@@ -27,6 +27,7 @@ export function EditCategoryName({ catName, setAnchorEl }) {
         fontWeight: "400",
         lineHeight: "1.75rem",
         padding: 0,
+        paddingRight: 1,
         color: "#000",
         border: "inherit",
         ':hover': {
@@ -46,23 +47,31 @@ export function EditCategoryName({ catName, setAnchorEl }) {
 
     //Handling the input value
     const handleInput = (event) => {
-            setNewCatName(event.target.value)
+        setNewCatName(event.target.value)
     }
 
+    //Handling submit with validation
     const handleSubmit = () => {
-        //Capturing old and new category name and assigning to state
-        const categoryNameChange = {
-            catName,
-            newCatName,
+        //If new category name isn't an empty string
+        if (newCatName !== "") {
+            //Capturing old and new category name and assigning to state
+            const categoryNameChange = {
+                catName,
+                newCatName,
+            }
+            //Reducer function receives the names
+            editCategory(categoryNameChange);
+            //redirect to new category route
+            navigate(`/CategoryMain/${newCatName}`);
+            //Closing the dialog window
+            handleClose();
+            //Passing value to parent to close the menu
+            setAnchorEl(null)
+        } else {
+            //If new category name is an empty string (default name is set to original name by initial state (catName)
+            //TODO: make a proper alert (visually)
+            alert("Please type new category name")
         }
-        //Reducer function receives the names
-        editCategory(categoryNameChange);
-        //redirect to new category route
-        navigate(`/CategoryMain/${newCatName}`);
-        //Closing the dialog window
-        handleClose();
-        //Passing value to parent to close the menu
-        setAnchorEl(null)
     }
 
     return (
@@ -85,11 +94,19 @@ export function EditCategoryName({ catName, setAnchorEl }) {
                         width: "100%",
                         }}
                     >
-                        <TextField sx={{
+                        <TextField
+                            sx={{
                             marginX: "1rem",
-                        }} variant={"standard"} onChange={handleInput}/>
+                            borderBottom: "f000",
+                            }}
+                            variant={"standard"}
+                            onChange={handleInput}
+                        />
                     </Box>
-                    <Button onClick={handleSubmit}>
+                    <Button
+                        onClick={handleSubmit}
+                        sx={buttonStyle}
+                    >
                         Rename
                     </Button>
                     </div>
