@@ -62,7 +62,7 @@ export function NewExpense() {
         }
         addTransaction(newExpense);
         handleSnackbarOpening();
-        console.log(month)
+        console.log(newExpense)
     }
 
     // function valueOnChange() {
@@ -77,7 +77,7 @@ export function NewExpense() {
             <form className={"expense__form"} onSubmit={onSubmit}>
                 <div className={"expense__form-container"}>
                     <label htmlFor="name">What did you pay for?</label>
-                    <input required={false}
+                    <input required={true}
                            type="text" value={name}
                            onChange={event => setName(event.target.value)}
                            autoCorrect={"on"}
@@ -115,10 +115,11 @@ export function NewExpense() {
                            placeholder={"Choose the currency"}
                            name="currency"
                            id="currency"
+                           disabled={true}
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    {/*TODO: making a component for category picking*/}
+                    {/*TODO: category picking with add category*/}
                     <label htmlFor="category">What is the category?</label>
                     <input required={true}
                            type="text"
@@ -133,11 +134,11 @@ export function NewExpense() {
                     <label htmlFor="notes">Add note?</label>
                     <textarea name="notes"
                               id="notes"
-                              maxLength={100}
+                              maxLength={80}
                               value={notes}
                               onChange={event => setNotes(event.target.value)}
                               autoCorrect={"on"}
-                              placeholder={"Type a note (100 characters)"}
+                              placeholder={"Type a note (80 characters)"}
                     />
                 </div>
                 <button>Add Expense</button>

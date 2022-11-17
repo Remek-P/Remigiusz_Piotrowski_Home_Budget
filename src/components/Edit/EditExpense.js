@@ -94,10 +94,11 @@ export function EditExpense() {
                            placeholder={"Choose the currency"}
                            name="currency"
                            id="currency"
+                           disabled={true}
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    {/*TODO: making a component for category picking*/}
+                    {/*TODO: category picking with add category*/}
                     <label htmlFor="category">What is the category of the expense?</label>
                     <input required={true}
                            type="text"
@@ -112,11 +113,11 @@ export function EditExpense() {
                     <label htmlFor="notes">Add note?</label>
                     <textarea name="notes"
                               id="notes"
-                              maxLength={100}
+                              maxLength={80}
                               value={newNotes}
                               onChange={event => setNewNotes(event.target.value)}
                               autoCorrect={"on"}
-                              placeholder={"Type a note (100 characters)"}
+                              placeholder={"Type a note (80 characters)"}
                     />
                 </div>
                 <button>Edit Expense</button>
