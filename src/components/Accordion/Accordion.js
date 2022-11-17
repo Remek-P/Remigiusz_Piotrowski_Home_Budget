@@ -10,7 +10,7 @@ import {DetailsDescription} from "../Details-Components/TransactionsList/Accordi
 import {styled} from "@mui/material/styles";
 import MuiAccordion from "@mui/material/Accordion";
 import AlertDialogSlideDelete from "../Buttons/AlertDialogSlide(Delete)";
-import {EditTransaction} from "../Buttons/EditTransaction";
+import {EditTransactionButton} from "../Buttons/EditTransactionButton";
 
 export default function SimpleAccordion({ transaction }) {
 
@@ -46,7 +46,7 @@ export default function SimpleAccordion({ transaction }) {
                         <DetailsDescription transaction={transaction}/>
                         <div className={"accordion-details-buttons"}>
                         {/*Edit Button*/}
-                        <EditTransaction transaction={transaction}/>
+                        <EditTransactionButton transaction={transaction}/>
                         {/*Delete Button*/}
                         <AlertDialogSlideDelete transaction={transaction}/>
                         </div>

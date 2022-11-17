@@ -1,0 +1,12 @@
+.new-expense__header {
+  padding-bottom: 1rem;
+}
+
+.new-expense__form {
+  margin: 1rem;
+
+  &-container {
+    display: flex;
+    flex-direction: column;
+  }
+}

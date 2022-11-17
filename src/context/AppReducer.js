@@ -25,6 +25,24 @@ export function AppReducer(state, action) {
                 transactions: [action.payload, ...state.transactions],
                 categoryList: [action.payload.category, ...state.categoryList].filter((item, index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
             };
+        case "Edit-transaction":
+            return {
+                ...state,
+                transactions: state.transactions.map(record => {
+                    if (record.id === action.payload.id) {
+                        record.id = action.payload.id
+                        record.name = action.payload.name
+                        record.date = action.payload.date
+                        record.month = action.payload.month
+                        record.day = action.payload.day
+                        record.value = action.payload.value
+                        record.currency = action.payload.currency
+                        record.category = action.payload.category
+                        record.notes = action.payload.notes
+                    }
+                    return record
+                }),
+            };
         case "Edit-category":
             return {
                 ...state,

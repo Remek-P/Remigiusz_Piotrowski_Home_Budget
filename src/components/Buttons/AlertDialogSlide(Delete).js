@@ -22,7 +22,8 @@ export default function AlertDialogSlideDelete({ transaction }) {
     const { deleteTransaction } = useContext(GlobalContext);
 
     //Overriding default styling for Button (delete)  - MUI component
-    const deleteButtonStyle = {fontSize: "0.875rem",
+    const deleteButtonStyle = {
+        fontSize: "0.875rem",
         lineHeight: "1.0625rem",
         px: "3.5rem",
         color: "#000",
@@ -49,7 +50,7 @@ export default function AlertDialogSlideDelete({ transaction }) {
     }
 
     return (
-        <div>
+        <>
             {/*Button displaying deletion function*/}
             <Button sx={deleteButtonStyle} variant="outlined" onClick={handleClickOpen}>
                 Delete
@@ -70,6 +71,6 @@ export default function AlertDialogSlideDelete({ transaction }) {
                     <Button sx={{ color: 'error.main' }} onClick={handleDelete}>Yes</Button>
                 </DialogActions>
             </Dialog>
-        </div>
+        </>
     );
 }

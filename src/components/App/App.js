@@ -8,6 +8,7 @@ import { GlobalProvider } from "../../context/GlobalStates";
 import { OverviewPage } from "../../pages/overview/OverviewPage";
 import { MissingPage } from "../../pages/missingPage/MissingPage";
 import { CategoryPage } from "../../pages/categoryPage/CategoryPage";
+import { EditExpensePage } from "../../pages/editExpensePage/EditExpensePage";
 
 export function App() {
 
@@ -23,6 +24,7 @@ export function App() {
                             {/*<Route path="/CategoryMain/*" element={<Navigate replace to={"/CategoryMain"}/>} />*/}
                         </Route>
                         <Route path="/NewExpense" element={<NewExpensePage/>}/>
+                        <Route path="/EditExpense" element={<EditExpensePage/>}/>
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
                 </Routes>

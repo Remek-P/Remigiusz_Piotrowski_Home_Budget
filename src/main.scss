@@ -1,6 +1,8 @@
 @import "./scss-general/style/reset";
 @import "./scss-general/variables/variables";
-@import "./scss-general/style/style.scss";
+@import "scss-general/variables/breakpoints";
+@import "./scss-general/style/style";
+@import "./scss-general/style/mixins";
 @import "components/Layout/layout";
 @import "components/Category/CatMain/categoryElements";
 @import "components/Overview/OverviewMain/overviewElements";

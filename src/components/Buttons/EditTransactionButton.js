@@ -1,7 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import {useNavigate} from "react-router-dom";
 
-export function EditTransaction() {
+export function EditTransactionButton({ transaction }) {
+
+    const navigate = useNavigate();
 
     const editButtonStyle = {
         fontSize: "0.875rem",
@@ -18,7 +21,9 @@ export function EditTransaction() {
     }
 
     const handleEdit = () => {
-
+        navigate("/EditExpense", {
+            state: transaction
+        })
     }
 
     return (
