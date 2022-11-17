@@ -12,10 +12,22 @@ export function CategoryMain() {
 
     const {transactions, categoryList} = useContext(GlobalContext)
 
-    //Formatting date so the Calculator.js can compare months by month of current year
+    //Formatting date so the PercentageCalculator.js can compare months with months formatted as a 2-digit number (YYYYMM)
     const currentDate = new Date();
-    const currentYear = (currentDate.getFullYear()).toString(10);
-    const currentMonth = currentYear+(currentDate.getMonth() + 1).toString(10);
+    //Extracting year
+    const currentYear = currentDate.toLocaleString("default",{year: "numeric"});
+    //Extracting month
+    const month = currentDate.toLocaleString("default",{month: "2-digit"});
+    const currentMonth = currentYear+month
+
+    const oneMonthBackDate = new Date();
+    //setting the date one month back for comparison
+    oneMonthBackDate.setMonth(oneMonthBackDate.getMonth()-1);
+    //Extracting year
+    const oneMonthBackYear = oneMonthBackDate.toLocaleString("default",{year: "numeric"});
+    //Extracting month
+    const oneMonthBack = oneMonthBackDate.toLocaleString('default', { month: '2-digit' });
+    const previousMonth = oneMonthBackYear+oneMonthBack
 
     //Sorting copied list of transactions by month variable
     const sortedTransactions = ([...transactions].sort((a, b) => b.month - a.month));
@@ -38,8 +50,9 @@ export function CategoryMain() {
                                         parentMonth={currentMonth}
                                     />
                                     <CategoryPercentage
-                                        catName={catName}
-                                        parentMonth={currentMonth}
+                                        parentCurrentMonth={currentMonth}
+                                        parentPreviousMonth={previousMonth}
+                                        parentCategory={catName}
                                     />
                                 </div>
                                 {/*<div className={"pseudo-button"}>view history</div>*/}

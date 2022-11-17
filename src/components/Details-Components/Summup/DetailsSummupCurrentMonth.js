@@ -3,10 +3,13 @@ import {Calculator} from "../../Calculators/Calculator";
 
 export function DetailsSummupCurrentMonth({ catName }) {
 
-    //Formatting date so the Calculator.js can compare months by month of current year
+    //Formatting date so the Calculator.js can compare months with months formatted as a 2-digit number (YYYYMM)
     const currentDate = new Date();
-    const currentYear = (currentDate.getFullYear()).toString(10);
-    const currentMonth = currentYear+(currentDate.getMonth() + 1).toString(10);
+    //Extracting year
+    const currentYear = currentDate.toLocaleString("default",{year: "numeric"});
+    //Extracting month
+    const month = currentDate.toLocaleString("default",{month: "2-digit"});
+    const currentMonth = currentYear+month
 
     return (
         <h5 className={"overview-details-summup__header"}>This month

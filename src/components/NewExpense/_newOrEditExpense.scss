@@ -1,9 +1,11 @@
 .expense__header {
+  margin: 0 auto;
   padding-bottom: 1rem;
 }
 
 .expense__form {
   margin: 1rem;
+  align-self: flex-start;
 
   &-container {
     display: flex;

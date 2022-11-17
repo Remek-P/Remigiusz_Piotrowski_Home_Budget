@@ -62,6 +62,7 @@ export function NewExpense() {
         }
         addTransaction(newExpense);
         handleSnackbarOpening();
+        console.log(month)
     }
 
     // function valueOnChange() {
@@ -75,12 +76,15 @@ export function NewExpense() {
             <h2 className={"expense__header"}>New Expense</h2>
             <form className={"expense__form"} onSubmit={onSubmit}>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="text">What did you pay for?</label>
+                    <label htmlFor="name">What did you pay for?</label>
                     <input required={false}
                            type="text" value={name}
                            onChange={event => setName(event.target.value)}
                            autoCorrect={"on"}
-                           placeholder={"Type the name"}/>
+                           placeholder={"Type the name"}
+                           name="name"
+                           id="name"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="date">When was the payment made?</label>
@@ -88,38 +92,53 @@ export function NewExpense() {
                            type="date"
                            value={date}
                            onChange={event => setDate(event.target.value)}
-                           placeholder={"Type the date"}/>
+                           placeholder={"Type the date"}
+                           name="date"
+                           id="date"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="number">What was the value?</label>
+                    <label htmlFor="value">What was the value?</label>
                     <input required={true}
                            type="number" value={value}
                            onChange={event => setValue(event.target.value)}
-                           placeholder={"Type amount"}/>
+                           placeholder={"Type amount"}
+                           name="value"
+                           id="date"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="text">What was the currency?</label>
+                    <label htmlFor="currency">What was the currency?</label>
                     <input required={true}
                            type="text" value={currency}
                            onChange={event => setCurrency(event.target.value)}
-                           placeholder={"Choose the currency"}/>
+                           placeholder={"Choose the currency"}
+                           name="currency"
+                           id="date"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: making a component for category picking*/}
-                    <label htmlFor="text">What is the category of the expense?</label>
+                    <label htmlFor="category">What is the category of the expense?</label>
                     <input required={true}
                            type="text"
                            value={category}
                            onChange={event => setCategory(event.target.value)}
-                           placeholder={"Choose a category"}/>
+                           placeholder={"Choose a category"}
+                           name="category"
+                           id="date"
+                    />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="textarea">Add note?</label>
+                    <label htmlFor="notes">Add note?</label>
                     <input type="textarea"
                            value={notes}
                            onChange={event => setNotes(event.target.value)}
                            autoCorrect={"on"}
-                           placeholder={"Type a note"}/>
+                           placeholder={"Type a note"}
+                           name="notes"
+                           id="date"
+                    />
                 </div>
                 <button>Add Expense</button>
                 <Snackbar
