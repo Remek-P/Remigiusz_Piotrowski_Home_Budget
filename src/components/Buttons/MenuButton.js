@@ -83,8 +83,6 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
         handleClose()
     }
 
-    console.log("MenuButton:", sortByDateDescending)
-
     //Choosing if Edit name button should be enabled
     const enableEditName = sectionName === "All expenses"
 

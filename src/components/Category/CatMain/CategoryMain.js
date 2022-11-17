@@ -22,10 +22,6 @@ export function CategoryMain() {
     // Filtering created array for unique names
     let uniqueCatArray = categoryArray.filter((item,index) => categoryArray.indexOf(item) === index);
 
-    console.log(transactions);
-    console.log(categoryList);
-    console.log(sortedTransactions);
-
     return (
         <ul>
             {uniqueCatArray.map((catName, index) => <li key={index}>

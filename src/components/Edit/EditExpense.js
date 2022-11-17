@@ -7,14 +7,13 @@ import { useLocation, useNavigate } from "react-router-dom";
 export function EditExpense() {
 
     const transaction = useLocation();
-
-    console.log(transaction.state)
+    console.log(transaction)
 
     const navigate = useNavigate();
 
     const { editTransaction } = useContext(GlobalContext);
 
-    const [ newName,       setNewName     ] = useState(transaction.state.name);
+    const [ newName,       setNewName     ] = useState((transaction.state.name).toString());
     const [ newDate,       setNewDate     ] = useState(transaction.state.date);
     const [ newValue,      setNewValue    ] = useState(transaction.state.value);
     //TODO: change currency to default PLN and add selection
@@ -28,7 +27,6 @@ export function EditExpense() {
     //Deriving day (y+m+d) variable from date state for sorting
     let day = newDate.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2$3");
 
-    console.log(month)
     const onSubmit = event => {
         event.preventDefault();
 
@@ -44,7 +42,7 @@ export function EditExpense() {
             notes: newNotes,
         }
         editTransaction(editedExpense);
-        navigate("/");
+        navigate(`/CategoryMain/${editedExpense.category}`);
     }
 
     // function valueOnChange() {

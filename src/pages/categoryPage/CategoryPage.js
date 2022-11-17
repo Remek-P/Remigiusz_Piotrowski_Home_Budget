@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React from "react";
 import {useParams} from "react-router-dom";
 
 import {FAB} from "../../components/FAB/FAB";
@@ -11,9 +11,6 @@ export function CategoryPage() {
         <>
             <Details catName={id}/>
             {/*TODO: fix the routing*/}
-            {/*<ul>*/}
-            {/*    {categoryList.map(cat => <li><Link to={cat}/></li>)}*/}
-            {/*</ul>*/}
             <FAB />
         </>
     )

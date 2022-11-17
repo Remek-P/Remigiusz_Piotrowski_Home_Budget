@@ -18,8 +18,6 @@ export function TransactionsList({ catName, sortByDateDescending }) {
         ? sortTransactionsDescending
         : sortTransactionsAscending
 
-    console.log("transactionList:", sortByDateDescending)
-
     //Filtering transactions that belong to chosen category, passed from parent component
     const filteredTransactions = sortedTransactions.filter(category => category.category === catName );
     //Checking if Category (filtering) or All expenses (without filtering) transactions should be displayed

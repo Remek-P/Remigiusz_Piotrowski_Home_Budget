@@ -1,6 +1,8 @@
 import React, {useContext, useState} from "react";
 import {GlobalContext} from "../../context/GlobalStates";
 
+import {Snackbar} from "@mui/material";
+
 //TODO: styling
 
 export function NewExpense() {
@@ -22,12 +24,27 @@ export function NewExpense() {
     const [ category,   setCategory ] = useState("");
     const [ notes,      setNotes    ] = useState("");
 
+    //Snackbar states
+    const [open, setOpen] = React.useState(false);
+
     //Deriving month (y+m) variable from date state for sorting
     let month = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2");
     //Deriving day (y+m+d) variable from date state for sorting
     let day = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2$3");
 
-    console.log(month)
+    //handle handleSnackbar opening
+    const handleSnackbarOpening = () => {
+        setOpen(true);
+    };
+
+    //handle handleSnackbar closing
+    const handleSnackbarClosing = (event, reason) => {
+        if (reason === 'clickaway') {
+            return;
+        }
+        setOpen(false);
+    };
+
     const onSubmit = event => {
         event.preventDefault();
         setID((prevState) => prevState + 1);
@@ -43,7 +60,8 @@ export function NewExpense() {
             category,
             notes,
         }
-        addTransaction(newExpense)
+        addTransaction(newExpense);
+        handleSnackbarOpening();
     }
 
     // function valueOnChange() {
@@ -103,6 +121,13 @@ export function NewExpense() {
                            placeholder={"Type a note"}/>
                 </div>
                 <button>Add Expense</button>
+                <Snackbar
+                    open={open}
+                    autoHideDuration={2000}
+                    message="Successfully added transaction"
+                    // action={action}
+                    onClose={handleSnackbarClosing}
+                />
             </form>
         </>
     )

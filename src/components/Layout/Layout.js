@@ -4,9 +4,9 @@ import {Outlet, NavLink} from 'react-router-dom';
 export function Layout() {
     return (
         <>
-                <div className={"main"}>
+                <div className={"layout"}>
                     <NavLink to={"/"}>
-                    <h1 className={"main__header"}>Your Budget</h1>
+                    <h1 className={"layout__header"}>Your Budget</h1>
                     </NavLink>
                     <main>
                         <Outlet/>
