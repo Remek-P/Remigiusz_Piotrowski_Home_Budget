@@ -30,15 +30,7 @@ export function AppReducer(state, action) {
                 ...state,
                 transactions: state.transactions.map(record => {
                     if (record.id === action.payload.id) {
-                        record.id = action.payload.id
-                        record.name = action.payload.name
-                        record.date = action.payload.date
-                        record.month = action.payload.month
-                        record.day = action.payload.day
-                        record.value = action.payload.value
-                        record.currency = action.payload.currency
-                        record.category = action.payload.category
-                        record.notes = action.payload.notes
+                        record = action.payload
                     }
                     return record
                 }),
