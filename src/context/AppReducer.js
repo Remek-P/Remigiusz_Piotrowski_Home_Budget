@@ -49,7 +49,7 @@ export function AppReducer(state, action) {
                         record = action.payload.newCatName
                     }
                     return record;
-                })
+                }),
             };
         default:
             return state;

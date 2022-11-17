@@ -119,7 +119,7 @@ export function NewExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: making a component for category picking*/}
-                    <label htmlFor="category">What is the category of the expense?</label>
+                    <label htmlFor="category">What is the category?</label>
                     <input required={true}
                            type="text"
                            value={category}
@@ -131,13 +131,13 @@ export function NewExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="notes">Add note?</label>
-                    <input type="textarea"
-                           value={notes}
-                           onChange={event => setNotes(event.target.value)}
-                           autoCorrect={"on"}
-                           placeholder={"Type a note"}
-                           name="notes"
-                           id="notes"
+                    <textarea name="notes"
+                              id="notes"
+                              maxLength={100}
+                              value={notes}
+                              onChange={event => setNotes(event.target.value)}
+                              autoCorrect={"on"}
+                              placeholder={"Type a note (100 characters)"}
                     />
                 </div>
                 <button>Add Expense</button>

@@ -110,13 +110,13 @@ export function EditExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     <label htmlFor="notes">Add note?</label>
-                    <input type="textarea"
-                           value={newNotes}
-                           onChange={event => setNewNotes(event.target.value)}
-                           autoCorrect={"on"}
-                           placeholder={"Type a note"}
-                           name="notes"
-                           id="notes"
+                    <textarea name="notes"
+                              id="notes"
+                              maxLength={100}
+                              value={newNotes}
+                              onChange={event => setNewNotes(event.target.value)}
+                              autoCorrect={"on"}
+                              placeholder={"Type a note (100 characters)"}
                     />
                 </div>
                 <button>Edit Expense</button>
