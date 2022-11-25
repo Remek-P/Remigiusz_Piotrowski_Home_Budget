@@ -9,6 +9,8 @@ const initialState = {
         {id: 5, name: "racs", date: "2022-11-05", month: "202211", day: "20221105", value: 10, currency: "zł", category: "trips", notes: "present for my birthday"},
         {id: 6, name: "PS5", date: "2022-11-06", month: "202211", day: "20221106", value: 10, currency: "zł", category: "gaming", notes: "present for my birthday"},
         {id: 7, name: "PS6", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "gaming", notes: "present for my birthdays sssssss s s  s ssssssssssssss ss s s s sssssssssssssssssss s ssssssssssssssssssssss s"},
+        {id: 8, name: "Four Tet", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "concert", notes: "was awesome"},
+        {id: 9, name: "Smart bridge", date: "2022-10-06", month: "202210", day: "20221006", value: 300, currency: "zł", category: "my", notes: ""},
     ],
     categoryList: ["gaming", "my", "trips", "home"],
     currencySigns: ["$", "zł"],

@@ -54,7 +54,7 @@ const buttonStyle = {
         backgroundColor: "transparent",
     }
 }
-
+//Displays category name/all expanses and serves as a menu button; receiving state and category name
 export default function MenuButton({ catName,sortByDateDescending, setSortByDateDescending }) {
 
     //Default configuration for MUI component (open/close menu)
@@ -64,20 +64,21 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
     //Picking the category name, if no category name is passed from parent component (undefined), display all expenses
     const sectionName = catName !== undefined ? catName : "All expenses";
 
-    //Button MUI on click tracking
+    //Button MUI on click state setting - default Material UI setting
     const handleClick = (event) => {
         setAnchorEl(event.currentTarget);
     };
-    //Open/close the menu (button)
+    //Open/close the menu (button) - default Material UI setting
     const handleClose = () => {
         setAnchorEl(null);
     };
 
-    const arrowDirection = sortByDateDescending === true
+    //Displaying sorting icon (up or down) based on the user preferences, and passed by state - default descending
+    const arrowDirection = sortByDateDescending === false
         ? <VerticalAlignTopIcon />
         : <VerticalAlignBottomIcon />
 
-    //Changing the setSortByDateDescending between true and false and sending it to TransactionList via Details (parent)
+    //Changing the setSortByDateDescending between true and false and sending it to TransactionList via Details (parent) and closing button menu
     const sortTransactions = () => {
         setSortByDateDescending(prevState => !prevState);
         handleClose()
@@ -88,7 +89,7 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
 
     return (
         <div>
-            {/*Menu Button displaying category name*/}
+            {/*Menu Button displaying category name/all expenses - Material UI*/}
             <Button
                 id="demo-customized-button"
                 sx={buttonStyle}
@@ -101,7 +102,7 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
             >
                 {sectionName}
             </Button>
-            {/*Menu component appearing after click on category name*/}
+            {/*Menu component appearing after click on category name - Material UI*/}
             <StyledMenu
                 id="demo-customized-menu"
                 MenuListProps={{
@@ -111,17 +112,17 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
                 open={open}
                 onClose={handleClose}
             >
-                {/*Sort button*/}
+                {/*Sort button, displaying directional sort icon*/}
                 <MenuItem onClick={sortTransactions} disableRipple>
                     <Sort />
                     Sort {arrowDirection}
-                </MenuItem>{
-                /*Edit button*/}
+                </MenuItem>
+                {/*Edit category button, enabled for category only; passing category name and using setState to pass data to close the menu*/}
                 <MenuItem disabled={enableEditName} disableRipple>
                     <Edit />
                     <EditCategoryName setAnchorEl={setAnchorEl} catName={catName}/>
                 </MenuItem>
-                {/*Delete category button with delete component */}
+                {/*Delete category button with delete component; passing category name and using setState to pass data to close the menu*/}
                 <MenuItem disableRipple>
                     <Delete sx={{color: 'error.main'}} />
                     <DeleteCategory setAnchorEl={setAnchorEl} catName={catName}/>

@@ -6,15 +6,16 @@ import {DetailsSummupM2MPercentage} from "../Details-Components/Summup/DetailsSu
 import {TransactionsList} from "../Details-Components/TransactionsList/TransactionsList";
 import MenuButton from "../Buttons/MenuButton";
 
+//Rendering detailed view (list) of transactions, current and previous month summ-up as well as M2M change
 export function Details({ catName }) {
 
-    //TODO:Universal update of sortByDateDescending
+    //Using useState to pass data between components - choose sorting (ascending/descending)
     let [ sortByDateDescending, setSortByDateDescending ] = useState(true);
 
     return (
             <section className={"overview-details"}>
                 <h3 className={"overview-details__header"}>
-                   {/* Displays cat name and serves as a menu buttony*/}
+                   {/* Displays category name/all expanses and serves as a menu button; passing state and category name*/}
                     <MenuButton
                         setSortByDateDescending={setSortByDateDescending}
                         sortByDateDescending={sortByDateDescending}

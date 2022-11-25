@@ -13,18 +13,25 @@ import { EditExpensePage } from "../../pages/editExpensePage/EditExpensePage";
 export function App() {
 
     return (
-        <GlobalProvider> {/*Added the provider as a separate element no to mess the layout*/}
+        //GlobalProvider for global data access (GlobalState)
+        <GlobalProvider>
             <Router>
                 <Routes>
                     <Route exact path="/" element={<Layout />}>
+                        {/*Home screen with always visible summ-up of all the transactions and automatically generated categories, based on category input from transaction*/}
                         <Route exact path="/" element={<MainPage />}/>
+                        {/*Summ-up and list of all the transactions*/}
                         <Route path="/Overview" element={<OverviewPage />} />
+                        {/*Summ-up and list of all the transactions in categories*/}
                         <Route path="/CategoryMain">
                             <Route path=":id" element={<CategoryPage />} />
                             {/*<Route path="/CategoryMain/*" element={<Navigate replace to={"/CategoryMain"}/>} />*/}
                         </Route>
-                        <Route path="/NewExpense" element={<NewExpensePage/>}/>
-                        <Route path="/EditExpense" element={<EditExpensePage/>}/>
+                        {/*Registering new transaction*/}
+                        <Route path="/NewExpense" element={<NewExpensePage />}/>
+                        {/*Edit transaction*/}
+                        <Route path="/EditExpense" element={<EditExpensePage />}/>
+                        {/*404*/}
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
                 </Routes>

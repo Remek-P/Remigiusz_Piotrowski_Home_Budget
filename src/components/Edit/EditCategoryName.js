@@ -9,16 +9,23 @@ import Dialog from "@mui/material/Dialog";
 import Slide from "@mui/material/Slide";
 import {Box, TextField} from "@mui/material";
 
-//Settings fot Transition MUI component
+//Settings for Transition MUI component
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-
+{/*Edit category button, enabled for category only; receiving category name and using setState to pass data to close the menu*/}
 export function EditCategoryName({ catName, setAnchorEl }) {
 
+    //Material UI default settings
     const [open, setOpen] = React.useState(false);
+
+    //using state to edit category name
     const [newCatName, setNewCatName] = useState(catName)
+
+    //using Global Context to access edit category function
     const { editCategory } = useContext(GlobalContext);
+
+    //using useNavigate to redirect after changing category name
     const navigate = useNavigate();
 
     //Overriding default button styles
@@ -35,12 +42,12 @@ export function EditCategoryName({ catName, setAnchorEl }) {
         }
     }
 
-    //Opening the dialog window
+    //Opening the dialog window using state
     const handleClickOpen = () => {
         setOpen(true);
     };
 
-    //Closing the dialog for window
+    //Closing the dialog for window using state
     const handleClose = () => {
         setOpen(false);
     };

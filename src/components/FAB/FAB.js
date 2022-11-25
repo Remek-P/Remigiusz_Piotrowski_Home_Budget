@@ -22,7 +22,9 @@ const fabStyle = {
 export function FAB() {
     return (
         <Link to="/NewExpense">
+            {/*Material UI component - button*/}
             <Fab sx={fabStyle}>
+                {/*Material UI icon*/}
                 <AddIcon sx={{fontSize: 40}}/>
             </Fab>
         </Link>
