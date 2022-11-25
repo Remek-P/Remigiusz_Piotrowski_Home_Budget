@@ -1,5 +1,5 @@
 import React from 'react';
-import {Calculator} from "../../Calculators/Calculator";
+import { Calculator } from "../../Calculators/Calculator";
 
 export function OverviewSumUp() {
 
@@ -14,9 +14,10 @@ export function OverviewSumUp() {
 
     return (
         <div className={"overview-main__sum-up"}>
-            {/*Passing current month to Calculator component*/}
+            {/*Rendering sum-up from Calculator, and passing month*/}
             <Calculator parentMonth={currentMonth} />
             {/*TODO: change to currencySign for global control*/}
+            {/*Currently hardcoded value, in the future for a component showing choice of currency sings and possibly converter*/}
             zł
         </div>
     )

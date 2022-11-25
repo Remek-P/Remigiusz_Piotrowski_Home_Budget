@@ -117,14 +117,18 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
                     <Sort />
                     Sort {arrowDirection}
                 </MenuItem>
-                {/*Edit category button, enabled for category only; passing category name and using setState to pass data to close the menu*/}
+                {/*Edit category button, enabled for category only*/}
                 <MenuItem disabled={enableEditName} disableRipple>
+                    {/*Icon - Material UI*/}
                     <Edit />
+                    {/*Component handling category name edition; passing category name and using setState to pass data to close the menu*/}
                     <EditCategoryName setAnchorEl={setAnchorEl} catName={catName}/>
                 </MenuItem>
-                {/*Delete category button with delete component; passing category name and using setState to pass data to close the menu*/}
+                {/*Delete category/all expenses button with delete component;*/}
                 <MenuItem disableRipple>
+                    {/*Icon - Material UI*/}
                     <Delete sx={{color: 'error.main'}} />
+                    {/*Component handling category/all expenses deletion; passing category name and using setState to pass data to close the menu*/}
                     <DeleteCategory setAnchorEl={setAnchorEl} catName={catName}/>
                 </MenuItem>
             </StyledMenu>

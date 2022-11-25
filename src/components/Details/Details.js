@@ -1,8 +1,8 @@
 import React, {useState} from "react";
 
-import {DetailsSummupCurrentMonth} from "../Details-Components/Summup/DetailsSummupCurrentMonth";
-import {DetailsSummupPreviousMonth} from "../Details-Components/Summup/DetailsSummupPreviousMonth";
-import {DetailsSummupM2MPercentage} from "../Details-Components/Summup/DetailsSummupM2MPercentage";
+import {DetailsSumupCurrentMonth} from "../Details-Components/Sumup/DetailsSumupCurrentMonth";
+import {DetailsSumupPreviousMonth} from "../Details-Components/Sumup/DetailsSumupPreviousMonth";
+import {DetailsSumupM2MPercentage} from "../Details-Components/Sumup/DetailsSumupM2MPercentage";
 import {TransactionsList} from "../Details-Components/TransactionsList/TransactionsList";
 import MenuButton from "../Buttons/MenuButton";
 
@@ -24,16 +24,20 @@ export function Details({ catName }) {
                 </h3>
                 <ul className={"overview-details-summup"}>
                     <li>
-                        <DetailsSummupCurrentMonth catName={catName} />
+                        {/*Rendering current month Sum-up; passing category name*/}
+                        <DetailsSumupCurrentMonth catName={catName} />
                     </li>
                     <li>
-                        <DetailsSummupPreviousMonth catName={catName} />
+                        {/*Rendering previous month Sum-up; passing category name */}
+                        <DetailsSumupPreviousMonth catName={catName} />
                     </li>
                     <li>
-                        <DetailsSummupM2MPercentage catName={catName} />
+                        {/*Rendering M2M change; passing category name */}
+                        <DetailsSumupM2MPercentage catName={catName} />
                     </li>
                 </ul>
                 <ul>
+
                     <TransactionsList
                         sortByDateDescending={sortByDateDescending}
                         catName={catName}

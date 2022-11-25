@@ -19,7 +19,7 @@ export function EditCategoryName({ catName, setAnchorEl }) {
     //Material UI default settings
     const [open, setOpen] = React.useState(false);
 
-    //using state to edit category name
+    //using state to edit category name, default current category name via default state
     const [newCatName, setNewCatName] = useState(catName)
 
     //using Global Context to access edit category function
@@ -83,9 +83,11 @@ export function EditCategoryName({ catName, setAnchorEl }) {
 
     return (
         <>
+            {/*Rename button - Material UI*/}
             <Button sx={buttonStyle} onClick={handleClickOpen}>
                 Rename
             </Button>
+            {/*Dialog component, after clicking, closes menu - Material UI*/}
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -93,29 +95,34 @@ export function EditCategoryName({ catName, setAnchorEl }) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
+                {/*Title - Material UI*/}
                 <DialogTitle>{"New category name"}</DialogTitle>
+                {/*Action menu - Material UI*/}
                 <DialogActions>
                     <div style={{width: "100%", display: "flex", justifyContent: "space-around"}}>
-                    <Box
-                        sx={{
-                        width: "100%",
-                        }}
-                    >
-                        <TextField
+                        {/*Box component - Material UI*/}
+                        <Box
                             sx={{
-                            marginX: "1rem",
-                            borderBottom: "f000",
+                                width: "100%",
                             }}
-                            variant={"standard"}
-                            onChange={handleInput}
-                        />
-                    </Box>
-                    <Button
-                        onClick={handleSubmit}
-                        sx={buttonStyle}
-                    >
-                        Rename
-                    </Button>
+                        >
+                            {/*Input for renaming - Material UI*/}
+                            <TextField
+                                sx={{
+                                    marginX: "1rem",
+                                    borderBottom: "f000",
+                                }}
+                                variant={"standard"}
+                                onChange={handleInput}
+                            />
+                        </Box>
+                        {/*Button passing the new name to transactions array in Global Context - Material UI*/}
+                        <Button
+                            onClick={handleSubmit}
+                            sx={buttonStyle}
+                        >
+                            Rename
+                        </Button>
                     </div>
                 </DialogActions>
             </Dialog>

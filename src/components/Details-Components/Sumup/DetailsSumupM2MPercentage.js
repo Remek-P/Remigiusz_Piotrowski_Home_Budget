@@ -1,9 +1,7 @@
 import React from "react";
-import { useState, useContext } from "react";
-import { GlobalContext } from "../../../context/GlobalStates";
 import {PercentageCalculator} from "../../Calculators/PercentageCalculator";
 
-export function DetailsSummupM2MPercentage({ catName }) {
+export function DetailsSumupM2MPercentage({ catName }) {
 
     //Formatting date so the PercentageCalculator.js can compare months with months formatted as a 2-digit number (YYYYMM)
     const currentDate = new Date();
@@ -11,6 +9,7 @@ export function DetailsSummupM2MPercentage({ catName }) {
     const currentYear = currentDate.toLocaleString("default",{year: "numeric"});
     //Extracting month
     const month = currentDate.toLocaleString("default",{month: "2-digit"});
+    //Combining month and year
     const currentMonth = currentYear+month
 
     const oneMonthBackDate = new Date();
@@ -20,6 +19,7 @@ export function DetailsSummupM2MPercentage({ catName }) {
     const oneMonthBackYear = oneMonthBackDate.toLocaleString("default",{year: "numeric"});
     //Extracting month
     const oneMonthBack = oneMonthBackDate.toLocaleString('default', { month: '2-digit' });
+    //Combining month and year
     const previousMonth = oneMonthBackYear+oneMonthBack
 
     return (
