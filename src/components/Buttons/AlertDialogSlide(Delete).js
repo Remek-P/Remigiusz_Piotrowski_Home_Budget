@@ -5,19 +5,20 @@ import DialogActions from '@mui/material/DialogActions';
 import DialogTitle from '@mui/material/DialogTitle';
 import Slide from '@mui/material/Slide';
 import {useContext} from "react";
-import {GlobalContext} from "../../context/GlobalStates";
+import { GlobalContext } from "../../context/GlobalStates";
 
-//Default settings gor MUI component
+//Default settings for MUI component
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
 
 
-//Confirmation component for deleting transaction and placing delete transaction button
+//Confirmation component for deleting transaction and placing delete transaction button, receiving transaction
 export default function AlertDialogSlideDelete({ transaction }) {
 
-    //Default configuration for MUI component
-    const [open, setOpen] = React.useState(false);
+    //Using state to manage open and close the pop-up
+    const [ open,   setOpen ] = React.useState(false);
+
     //Importing function (delete transaction) from Global Context (and AppReducer)
     const { deleteTransaction } = useContext(GlobalContext);
 
@@ -36,7 +37,7 @@ export default function AlertDialogSlideDelete({ transaction }) {
         }
     }
 
-    //Button MUI on click handlers
+    //Button on click handling open and close the pop-up
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -44,7 +45,7 @@ export default function AlertDialogSlideDelete({ transaction }) {
         setOpen(false);
     };
 
-    //providing deleteTransaction with payload
+    //calling deleteTransaction function (from Global Context) and providing it with payload
     const handleDelete = () => {
         deleteTransaction(transaction.id)
     }
@@ -52,10 +53,14 @@ export default function AlertDialogSlideDelete({ transaction }) {
     return (
         <>
             {/*Button displaying deletion function*/}
-            <Button sx={deleteButtonStyle} variant="outlined" onClick={handleClickOpen}>
+            <Button
+                sx={deleteButtonStyle}
+                variant="outlined"
+                onClick={handleClickOpen}
+            >
                 Delete
             </Button>
-            {/*Pop-up settings (default for MUI)*/}
+            {/*Pop-up settings - Material UI)*/}
             <Dialog
                 open={open}
                 TransitionComponent={Transition}
@@ -63,12 +68,24 @@ export default function AlertDialogSlideDelete({ transaction }) {
                 onClose={handleClose}
                 aria-describedby="alert-dialog-slide-description"
             >
-                {/*Pop-up title*/}
+                {/*Pop-up title - Material UI*/}
                 <DialogTitle>{"Do you want to delete the expense?"}</DialogTitle>
-                {/*Pop-up delete confirmation or rejection*/}
+                {/*Pop-up delete confirmation or rejection - Material UI*/}
                 <DialogActions>
-                    <Button sx={{ color: 'text.secondary' }} onClick={handleClose}>Cancel</Button>
-                    <Button sx={{ color: 'error.main' }} onClick={handleDelete}>Yes</Button>
+                    {/*Cancel and close pop-up*/}
+                    <Button
+                        sx={{color: 'text.secondary'}}
+                        onClick={handleClose}
+                    >
+                        Cancel
+                    </Button>
+                    {/*Confirm deletion*/}
+                    <Button
+                        sx={{color: 'error.main'}}
+                        onClick={handleDelete}
+                    >
+                        Yes
+                    </Button>
                 </DialogActions>
             </Dialog>
         </>

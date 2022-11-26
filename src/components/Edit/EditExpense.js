@@ -4,15 +4,20 @@ import { useLocation, useNavigate } from "react-router-dom";
 
 //TODO: styling
 
+//Component for editing transactions
 export function EditExpense() {
 
+    //using hook to receive transaction object
     const transaction = useLocation();
 
+    //using hook to navigate back after edition
     const navigate = useNavigate();
 
+    //Import functions from Global Context
     const { editTransaction } = useContext(GlobalContext);
 
-    const [ newName,       setNewName     ] = useState((transaction.state.name));
+    //States for assigning new input value
+    const [ newName,       setNewName     ] = useState(transaction.state.name);
     const [ newDate,       setNewDate     ] = useState(transaction.state.date);
     const [ newValue,      setNewValue    ] = useState(transaction.state.value);
     //TODO: change currency to default PLN and add selection
@@ -26,6 +31,7 @@ export function EditExpense() {
     //Deriving day (y+m+d) variable from date state for sorting
     let day = newDate.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2$3");
 
+    //preventing reload, assign new values to states (apart from id) and assigning those states to new constant which will be sent to editTransaction function for reducer to handle the editing of the transaction and navigating to category od the transaction
     const onSubmit = event => {
         event.preventDefault();
 
@@ -52,12 +58,17 @@ export function EditExpense() {
 
     return (
         <>
-            <h2 className={"expense__header"}>Edit Expense</h2>
+            <h2 className={"expense__header"}>
+                Edit Expense
+            </h2>
             <form className={"expense__form"} onSubmit={onSubmit}>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="name">What did you pay for?</label>
+                    <label htmlFor="name">
+                        What did you pay for?
+                    </label>
                     <input required={true}
-                           type="text" value={newName}
+                           type="text"
+                           value={newName}
                            onChange={event => setNewName(event.target.value)}
                            autoCorrect={"on"}
                            placeholder={"Type the name"}
@@ -66,7 +77,9 @@ export function EditExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="date">When was the payment made?</label>
+                    <label htmlFor="date">
+                        When was the payment made?
+                    </label>
                     <input required={true}
                            type="date"
                            value={newDate}
@@ -77,7 +90,9 @@ export function EditExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="value">What was the value?</label>
+                    <label htmlFor="value">
+                        What was the value?
+                    </label>
                     <input required={true}
                            type="number" value={newValue}
                            onChange={event => setNewValue(event.target.value)}
@@ -87,9 +102,12 @@ export function EditExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="currency">What was the currency?</label>
+                    <label htmlFor="currency">
+                        What was the currency?
+                    </label>
                     <input required={true}
-                           type="text" value={newCurrency}
+                           type="text"
+                           value={newCurrency}
                            onChange={event => setNewCurrency(event.target.value)}
                            placeholder={"Choose the currency"}
                            name="currency"
@@ -99,7 +117,9 @@ export function EditExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: category picking with add category*/}
-                    <label htmlFor="category">What is the category of the expense?</label>
+                    <label htmlFor="category">
+                        What is the category of the expense?
+                    </label>
                     <input required={true}
                            type="text"
                            value={newCategory}
@@ -110,7 +130,9 @@ export function EditExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="notes">Add note?</label>
+                    <label htmlFor="notes">
+                        Add note?
+                    </label>
                     <textarea name="notes"
                               id="notes"
                               maxLength={80}

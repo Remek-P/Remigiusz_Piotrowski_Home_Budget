@@ -9,12 +9,12 @@ export function PercentageCalculator({parentCurrentMonth, parentPreviousMonth, p
     //Calculating percentage value for All Expenses
     //Calculating value of current month expenses
     const currentMonth = transactions
-        .filter((month) => month.month === parentCurrentMonth)
-        .reduce((total, amount) => total + amount.value, 0);
+                                .filter((month) => month.month === parentCurrentMonth)
+                                .reduce((total, amount) => total + amount.value, 0);
     //Calculating value of previous month expenses
     const previousMonth = transactions
-        .filter((month) => month.month === parentPreviousMonth)
-        .reduce((total, amount) => total + amount.value, 0);
+                                .filter((month) => month.month === parentPreviousMonth)
+                                .reduce((total, amount) => total + amount.value, 0);
     //Avoiding displaying infinity, if previous month is 0, and rounding to one decimal place
     const percentage = previousMonth === 0
         ? 0
@@ -23,14 +23,14 @@ export function PercentageCalculator({parentCurrentMonth, parentPreviousMonth, p
     //Calculating percentage value for a category
     //Calculating value of current month expenses
     const categoryCurrentMonth = transactions
-        .filter((month) => month.month === parentCurrentMonth)
-        .filter((category) => category.category === parentCategory)
-        .reduce((total, amount) => total + amount.value, 0);
+                                        .filter((month) => month.month === parentCurrentMonth)
+                                        .filter((category) => category.category === parentCategory)
+                                        .reduce((total, amount) => total + amount.value, 0);
     //Calculating value of previous month expenses
     const categoryPreviousMonth = transactions
-        .filter((month) => month.month === parentPreviousMonth)
-        .filter((category) => category.category === parentCategory)
-        .reduce((total, amount) => total + amount.value, 0)
+                                        .filter((month) => month.month === parentPreviousMonth)
+                                        .filter((category) => category.category === parentCategory)
+                                        .reduce((total, amount) => total + amount.value, 0)
     //Avoiding displaying infinity, if previous month is 0, and rounding to one decimal place
     const categoryPercentage = categoryPreviousMonth === 0
         ? 0

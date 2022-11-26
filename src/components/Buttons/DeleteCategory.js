@@ -11,11 +11,13 @@ import Slide from "@mui/material/Slide";
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-{/*Component handling category/all expenses deletion; receiving category name and using setState to pass data to close the menu*/}
-export function DeleteCategory({ catName, setAnchorEl }) {
+{/*Component handling category/all expenses deletion; receiving category name and using setState to pass data to close the menu*/
+}
+
+export function DeleteCategory({catName, setAnchorEl}) {
 
     //using state to handle opening/closing dialog
-    const [open, setOpen] = React.useState(false);
+    const [ open,   setOpen ] = React.useState(false);
 
     //Importing functions from Global Context
     const { deleteCategory, deleteAllTransactions } = useContext(GlobalContext);
@@ -64,7 +66,9 @@ export function DeleteCategory({ catName, setAnchorEl }) {
     return (
         <>
             {/*Button - Material UI*/}
-            <Button sx={buttonStyle} onClick={handleClickOpen}>
+            <Button sx={buttonStyle}
+                    onClick={handleClickOpen}
+            >
                 Delete {sectionName}
             </Button>
             {/*Displaying alert, to ensure the deletion is intentional*/}
@@ -80,9 +84,19 @@ export function DeleteCategory({ catName, setAnchorEl }) {
                 {/*Dialog to confirm or reject deletion*/}
                 <DialogActions>
                     {/*Cancel button and close dialog - Material UI*/}
-                    <Button sx={{color: 'text.secondary'}} onClick={handleClose}>Cancel</Button>
+                    <Button
+                        sx={{color: 'text.secondary'}}
+                        onClick={handleClose}
+                    >
+                        Cancel
+                    </Button>
                     {/*Confirm button and navigate to home page - Material UI*/}
-                    <Button sx={{color: 'error.main'}} onClick={handleDelete}>Yes</Button>
+                    <Button
+                        sx={{color: 'error.main'}}
+                        onClick={handleDelete}
+                    >
+                        Yes
+                    </Button>
                 </DialogActions>
             </Dialog>
         </>

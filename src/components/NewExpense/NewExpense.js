@@ -5,8 +5,10 @@ import {Snackbar} from "@mui/material";
 
 //TODO: styling
 
+//Component for adding multiple new transactions and displaying notification after successfully doing so
 export function NewExpense() {
 
+    //Import functions from Global Context
     const { addTransaction, transactions } = useContext(GlobalContext);
 
     //Sort transactions array by id number and return descending or 0
@@ -14,6 +16,7 @@ export function NewExpense() {
     //Attributing new transaction id, by setting id's initial state - if the array is empty set as 1, if not by adding 1 to the first (greatest) id taken from (const) sortedTransactions
     const currentID = sortedTransactions[0] !== undefined ? sortedTransactions[0].id + 1 : 1;
 
+    //States for assigning input value
     const [ id,         setID       ] = useState(currentID);
     const [ name,       setName     ] = useState("");
     const [ date,       setDate     ] = useState("");
@@ -24,20 +27,20 @@ export function NewExpense() {
     const [ category,   setCategory ] = useState("");
     const [ notes,      setNotes    ] = useState("");
 
-    //Snackbar states
-    const [open, setOpen] = React.useState(false);
+    //Snackbar states - Material UI
+    const [ open,       setOpen     ] = React.useState(false);
 
     //Deriving month (y+m) variable from date state for sorting
     let month = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2");
     //Deriving day (y+m+d) variable from date state for sorting
     let day = date.replace(/(\d{4})[\/. -]?(\d{2})[\/. -]?(\d{1,2})/, "$1$2$3");
 
-    //handle handleSnackbar opening
+    //handle Snackbar opening - Material UI
     const handleSnackbarOpening = () => {
         setOpen(true);
     };
 
-    //handle handleSnackbar closing
+    //handle Snackbar closing - Material UI
     const handleSnackbarClosing = (event, reason) => {
         if (reason === 'clickaway') {
             return;
@@ -45,6 +48,7 @@ export function NewExpense() {
         setOpen(false);
     };
 
+    //Preventing default reload, setting id to next highest id number, assigning input value to states and assigning those states to new constant which will be sent to addTransaction function for reducer to handle the addition of new transaction to transactions array in Global Context and activating the snackbar
     const onSubmit = event => {
         event.preventDefault();
         setID((prevState) => prevState + 1);
@@ -62,7 +66,6 @@ export function NewExpense() {
         }
         addTransaction(newExpense);
         handleSnackbarOpening();
-        console.log(newExpense)
     }
 
     // function valueOnChange() {
@@ -73,10 +76,17 @@ export function NewExpense() {
 
     return (
         <>
-            <h2 className={"expense__header"}>New Expense</h2>
-            <form className={"expense__form"} onSubmit={onSubmit}>
+            <h2 className={"expense__header"}>
+                New Expense
+            </h2>
+            <form
+                className={"expense__form"}
+                onSubmit={onSubmit}
+            >
                 <div className={"expense__form-container"}>
-                    <label htmlFor="name">What did you pay for?</label>
+                    <label htmlFor="name">
+                        What did you pay for?
+                    </label>
                     <input required={true}
                            type="text" value={name}
                            onChange={event => setName(event.target.value)}
@@ -87,7 +97,9 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="date">When was the payment made?</label>
+                    <label htmlFor="date">
+                        When was the payment made?
+                    </label>
                     <input required={true}
                            type="date"
                            value={date}
@@ -98,7 +110,9 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="value">What was the value?</label>
+                    <label htmlFor="value">
+                        What was the value?
+                    </label>
                     <input required={true}
                            type="number" value={value}
                            onChange={event => setValue(event.target.value)}
@@ -108,7 +122,9 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="currency">What was the currency?</label>
+                    <label htmlFor="currency">
+                        What was the currency?
+                    </label>
                     <input required={true}
                            type="text" value={currency}
                            onChange={event => setCurrency(event.target.value)}
@@ -120,7 +136,9 @@ export function NewExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: category picking with add category*/}
-                    <label htmlFor="category">What is the category?</label>
+                    <label htmlFor="category">
+                        What is the category?
+                    </label>
                     <input required={true}
                            type="text"
                            value={category}
@@ -131,7 +149,9 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="notes">Add note?</label>
+                    <label htmlFor="notes">
+                        Add note?
+                    </label>
                     <textarea name="notes"
                               id="notes"
                               maxLength={80}
@@ -141,13 +161,14 @@ export function NewExpense() {
                               placeholder={"Type a note (80 characters)"}
                     />
                 </div>
-                <button>Add Expense</button>
-                <Snackbar
-                    open={open}
-                    autoHideDuration={2000}
-                    message="Successfully added transaction"
-                    // action={action}
-                    onClose={handleSnackbarClosing}
+                <button>
+                    Add Expense
+                </button>
+                {/*Component for displaying success notification, after adding a singular transaction*/}
+                <Snackbar open={open}
+                          autoHideDuration={2000}
+                          message="Successfully added transaction"
+                          onClose={handleSnackbarClosing}
                 />
             </form>
         </>

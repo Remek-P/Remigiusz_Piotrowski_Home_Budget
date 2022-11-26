@@ -105,15 +105,16 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
             {/*Menu component appearing after click on category name - Material UI*/}
             <StyledMenu
                 id="demo-customized-menu"
-                MenuListProps={{
-                    'aria-labelledby': 'demo-customized-button',
-                }}
+                MenuListProps={{'aria-labelledby': 'demo-customized-button',}}
                 anchorEl={anchorEl}
                 open={open}
                 onClose={handleClose}
             >
                 {/*Sort button, displaying directional sort icon*/}
-                <MenuItem onClick={sortTransactions} disableRipple>
+                <MenuItem
+                    onClick={sortTransactions}
+                    disableRipple
+                >
                     <Sort />
                     Sort {arrowDirection}
                 </MenuItem>

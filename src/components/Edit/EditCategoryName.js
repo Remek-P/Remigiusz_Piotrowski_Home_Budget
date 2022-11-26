@@ -102,9 +102,7 @@ export function EditCategoryName({ catName, setAnchorEl }) {
                     <div style={{width: "100%", display: "flex", justifyContent: "space-around"}}>
                         {/*Box component - Material UI*/}
                         <Box
-                            sx={{
-                                width: "100%",
-                            }}
+                            sx={{width: "100%",}}
                         >
                             {/*Input for renaming - Material UI*/}
                             <TextField

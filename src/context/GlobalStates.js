@@ -12,9 +12,9 @@ const initialState = {
         {id: 8, name: "Four Tet", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "concert", notes: "was awesome"},
         {id: 9, name: "Smart bridge", date: "2022-10-06", month: "202210", day: "20221006", value: 300, currency: "zł", category: "my", notes: ""},
     ],
-    categoryList: ["gaming", "my", "trips", "home"],
-    currencySigns: ["$", "zł"],
-    defaultCurrencySign: [],
+    // categoryList: ["gaming", "my", "trips", "home"],
+    // currencySigns: ["$", "zł"],
+    // defaultCurrencySign: [],
 };
 
 // let catList = [...initialState.transactions.map(transaction => transaction.category).filter((item,index) => initialState.transactions.map(transaction => transaction.category).indexOf(item) === index)];
@@ -22,10 +22,13 @@ const initialState = {
 
 // console.log(categoryList);
 
+//Global Context for sharing data and function across the app
 export const GlobalContext = createContext(initialState);
 
-export const GlobalProvider = ({ children }) => {
+//creating provider to wrap components that will use Global Context
+export const GlobalProvider = ({children}) => {
 
+    //setting state and dispatch for reducer
     const [state, dispatch] = useReducer(AppReducer, initialState);
 
     function deleteTransaction(id) {
@@ -41,6 +44,7 @@ export const GlobalProvider = ({ children }) => {
             payload: catName
         })
     }
+
     function deleteAllTransactions() {
         dispatch({
             type: "Delete-All-Transactions",
@@ -67,7 +71,7 @@ export const GlobalProvider = ({ children }) => {
             payload: categoryNameChange,
         })
     }
-
+    //providing the provider with access to function
     return (
         <GlobalContext.Provider
             value={{

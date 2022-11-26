@@ -13,36 +13,36 @@ export function Details({ catName }) {
     let [ sortByDateDescending, setSortByDateDescending ] = useState(true);
 
     return (
-            <section className={"overview-details"}>
-                <h3 className={"overview-details__header"}>
-                   {/* Displays category name/all expanses and serves as a menu button; passing state and category name*/}
-                    <MenuButton
-                        setSortByDateDescending={setSortByDateDescending}
-                        sortByDateDescending={sortByDateDescending}
-                        catName={catName}
-                    />
-                </h3>
-                <ul className={"overview-details-summup"}>
-                    <li>
-                        {/*Rendering current month Sum-up; passing category name*/}
-                        <DetailsSumupCurrentMonth catName={catName} />
-                    </li>
-                    <li>
-                        {/*Rendering previous month Sum-up; passing category name */}
-                        <DetailsSumupPreviousMonth catName={catName} />
-                    </li>
-                    <li>
-                        {/*Rendering M2M change; passing category name */}
-                        <DetailsSumupM2MPercentage catName={catName} />
-                    </li>
-                </ul>
-                <ul>
-
-                    <TransactionsList
-                        sortByDateDescending={sortByDateDescending}
-                        catName={catName}
-                    />
-                </ul>
-            </section>
+        <section className={"overview-details"}>
+            <h3 className={"overview-details__header"}>
+                {/* Displays category name/all expanses and serves as a menu button; passing state and category name*/}
+                <MenuButton
+                    setSortByDateDescending={setSortByDateDescending}
+                    sortByDateDescending={sortByDateDescending}
+                    catName={catName}
+                />
+            </h3>
+            <ul className={"overview-details-summup"}>
+                <li>
+                    {/*Rendering current month Sum-up; passing category name*/}
+                    <DetailsSumupCurrentMonth catName={catName}/>
+                </li>
+                <li>
+                    {/*Rendering previous month Sum-up; passing category name */}
+                    <DetailsSumupPreviousMonth catName={catName}/>
+                </li>
+                <li>
+                    {/*Rendering M2M change; passing category name */}
+                    <DetailsSumupM2MPercentage catName={catName}/>
+                </li>
+            </ul>
+            <ul>
+                {/*Component for rendering the list of transactions in all expenses/chosen category; passing sorting direction and category name*/}
+                <TransactionsList
+                    sortByDateDescending={sortByDateDescending}
+                    catName={catName}
+                />
+            </ul>
+        </section>
     )
 }
