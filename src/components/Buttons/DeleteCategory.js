@@ -11,8 +11,7 @@ import Slide from "@mui/material/Slide";
 const Transition = React.forwardRef(function Transition(props, ref) {
     return <Slide direction="up" ref={ref} {...props} />;
 });
-{/*Component handling category/all expenses deletion; receiving category name and using setState to pass data to close the menu*/
-}
+{/*Component handling category/all expenses deletion; receiving category name and using setState to pass data to close the menu*/}
 
 export function DeleteCategory({catName, setAnchorEl}) {
 
