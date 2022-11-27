@@ -44,3 +44,13 @@ q:before, q:after {
 blockquote, q {
   quotes: "" "";
 }
+
+//Form - hide numeric input up and down arrows
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+input[type=number]{
+  -moz-appearance: textfield;
+}

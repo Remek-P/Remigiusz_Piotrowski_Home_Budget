@@ -20,6 +20,7 @@ export function NewExpense() {
     //Attributing new transaction id, by setting id's initial state - if the array is empty set as 1, if not by adding 1 to the first (greatest) id taken from (const) sortedTransactions
     const currentID = sortedTransactions[0] !== undefined ? sortedTransactions[0].id + 1 : 1;
 
+
     //States for assigning input value
     const [ id,         setID       ] = useState(currentID);
     const [ name,       setName     ] = useState("");
@@ -83,8 +84,8 @@ export function NewExpense() {
     // }
 
     return (
-        <>
-            <h2 className={"expense__header"}>
+        <div className={"expense"}>
+            <h2 className={"expense__header"} onClick={handleCancel}>
                 New Expense
             </h2>
             <form
@@ -92,11 +93,15 @@ export function NewExpense() {
                 onSubmit={onSubmit}
             >
                 <div className={"expense__form-container"}>
-                    <label htmlFor="name">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="name"
+                    >
                         What did you pay for?
                     </label>
-                    <input required={true}
-                           type="text" value={name}
+                    <input className={"expense__form-container__input"}
+                           required={true}
+                           type="text"
+                           value={name}
                            onChange={event => setName(event.target.value)}
                            autoCorrect={"on"}
                            placeholder={"Type the name"}
@@ -105,10 +110,13 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="date">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="date"
+                    >
                         When was the payment made?
                     </label>
-                    <input required={true}
+                    <input className={"expense__form-container__input"}
+                           required={true}
                            type="date"
                            value={date}
                            onChange={event => setDate(event.target.value)}
@@ -118,11 +126,15 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="value">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="value"
+                    >
                         What was the value?
                     </label>
-                    <input required={true}
-                           type="number" value={value}
+                    <input className={"expense__form-container__input"}
+                           required={true}
+                           type="number"
+                           value={value}
                            onChange={event => setValue(event.target.value)}
                            placeholder={"Type amount"}
                            name="value"
@@ -130,11 +142,15 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="currency">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="currency"
+                    >
                         What was the currency?
                     </label>
-                    <input required={true}
-                           type="text" value={currency}
+                    <input className={"expense__form-container__input"}
+                           required={true}
+                           type="text"
+                           value={currency}
                            onChange={event => setCurrency(event.target.value)}
                            placeholder={"Choose the currency"}
                            name="currency"
@@ -144,10 +160,13 @@ export function NewExpense() {
                 </div>
                 <div className={"expense__form-container"}>
                     {/*TODO: category picking with add category*/}
-                    <label htmlFor="category">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="category"
+                    >
                         What is the category?
                     </label>
-                    <input required={true}
+                    <input className={"expense__form-container__input"}
+                           required={true}
                            type="text"
                            value={category}
                            onChange={event => setCategory(event.target.value)}
@@ -157,10 +176,13 @@ export function NewExpense() {
                     />
                 </div>
                 <div className={"expense__form-container"}>
-                    <label htmlFor="notes">
+                    <label className={"expense__form-container__label"}
+                           htmlFor="notes"
+                    >
                         Add note?
                     </label>
-                    <textarea name="notes"
+                    <textarea className={"expense__form-container__input"}
+                              name="notes"
                               id="notes"
                               maxLength={80}
                               value={notes}
@@ -169,12 +191,16 @@ export function NewExpense() {
                               placeholder={"Type a note (80 characters)"}
                     />
                 </div>
-                <button>
-                    Add Expense
-                </button>
-                <button onClick={handleCancel}>
-                    Cancel
-                </button>
+                <div className={"expense__form__button-container"}>
+                    <button className={"expense__form__button-container__button expense__form__button-container__button-confirm"}>
+                        Add Expense
+                    </button>
+                    <button className={"expense__form__button-container__button expense__form__button-container__button-cancel"}
+                            onClick={handleCancel}
+                    >
+                        Cancel
+                    </button>
+                </div>
                 {/*Component for displaying success notification, after adding a singular transaction*/}
                 <Snackbar open={open}
                           autoHideDuration={2000}
@@ -182,6 +208,6 @@ export function NewExpense() {
                           onClose={handleSnackbarClosing}
                 />
             </form>
-        </>
+        </div>
     )
 }
