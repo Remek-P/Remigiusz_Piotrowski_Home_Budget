@@ -2,6 +2,7 @@ import React, {useContext, useState} from "react";
 import {GlobalContext} from "../../context/GlobalStates";
 
 import {Snackbar} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 
 //TODO: styling
 
@@ -10,6 +11,9 @@ export function NewExpense() {
 
     //Import functions from Global Context
     const { addTransaction, transactions } = useContext(GlobalContext);
+
+    //using hook to navigate back to home page
+    const navigate = useNavigate()
 
     //Sort transactions array by id number and return descending or 0
     const sortedTransactions = ([...transactions].sort((a, b) => b.id - a.id)) || 0;
@@ -66,6 +70,10 @@ export function NewExpense() {
         }
         addTransaction(newExpense);
         handleSnackbarOpening();
+    }
+
+    const handleCancel = () => {
+        navigate("/")
     }
 
     // function valueOnChange() {
@@ -163,6 +171,9 @@ export function NewExpense() {
                 </div>
                 <button>
                     Add Expense
+                </button>
+                <button onClick={handleCancel}>
+                    Cancel
                 </button>
                 {/*Component for displaying success notification, after adding a singular transaction*/}
                 <Snackbar open={open}

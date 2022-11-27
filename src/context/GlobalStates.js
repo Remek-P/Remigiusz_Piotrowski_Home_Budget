@@ -1,5 +1,7 @@
 import React, {createContext, useReducer,} from "react";
 import { AppReducer } from "./AppReducer";
+
+//hardcoded values for presentational purpose, can be deleted
 const initialState = {
     transactions: [
         {id: 1, name: "game", date: "2023-01-01", month: "202301", day: "20230101", value: 2000, currency: "zł", category: "gaming", notes: "present for my birthday"},
@@ -12,7 +14,7 @@ const initialState = {
         {id: 8, name: "Four Tet", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "concert", notes: "was awesome"},
         {id: 9, name: "Smart bridge", date: "2022-10-06", month: "202210", day: "20221006", value: 300, currency: "zł", category: "my", notes: ""},
     ],
-    // categoryList: ["gaming", "my", "trips", "home"],
+    // categoryList: [],
     // currencySigns: ["$", "zł"],
     // defaultCurrencySign: [],
 };

@@ -1,13 +1,14 @@
 .expense__header {
   margin: 0 auto;
-  padding-bottom: 1rem;
+  padding-bottom: 15%;
 }
 
 .expense__form {
-  align-self: flex-start;
+  margin: 0 auto;
 
   &-container {
     display: flex;
+
     flex-direction: column;
   }
 }

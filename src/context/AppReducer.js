@@ -28,7 +28,7 @@ export function AppReducer(state, action) {
             return {
                 ...state,
                 transactions: [action.payload, ...state.transactions],
-                categoryList: [action.payload.category, ...state.categoryList].filter((item, index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
+                // categoryList: [action.payload.category, ...state.categoryList].filter((item, index) => [action.payload.category, ...state.categoryList].indexOf(item) === index),
             };
         //Editing single transaction by catching it by passed id and swapping the values
         case "Edit-transaction":

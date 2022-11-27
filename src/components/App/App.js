@@ -27,13 +27,13 @@ export function App() {
                             <Route path=":id" element={<CategoryPage />} />
                             {/*<Route path="/CategoryMain/*" element={<Navigate replace to={"/CategoryMain"}/>} />*/}
                         </Route>
-                        {/*Registering new transaction*/}
-                        <Route path="/NewExpense" element={<NewExpensePage />}/>
-                        {/*Edit transaction*/}
-                        <Route path="/EditExpense" element={<EditExpensePage />}/>
                         {/*404*/}
                         <Route path="/*" element={<MissingPage />}/>
                     </Route>
+                    {/*Registering new transaction*/}
+                    <Route path="/NewExpense" element={<NewExpensePage />}/>
+                    {/*Edit transaction*/}
+                    <Route path="/EditExpense" element={<EditExpensePage />}/>
                 </Routes>
             </Router>
         </GlobalProvider>

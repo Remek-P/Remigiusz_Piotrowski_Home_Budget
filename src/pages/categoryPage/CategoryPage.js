@@ -8,6 +8,7 @@ export function CategoryPage() {
 
     //using hook, to pass the info for the component, which category is currently displayed
     let { id } = useParams();
+    console.log(id)
     return (
         <>
             {/*Component for rendering detailed view of category transactions, editing and deleting, as well as showing summ-ups; passing the category name from useParams hook*/}
