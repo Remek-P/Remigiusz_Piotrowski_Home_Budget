@@ -53,6 +53,12 @@ export function NewExpense() {
         setOpen(false);
     };
 
+    const timeID = () => {
+        setTimeout(() => {
+            navigate(`/CategoryMain/${category}`);
+        }, 1200)
+    };
+
     //Preventing default reload, setting id to next highest id number, assigning input value to states and assigning those states to new constant which will be sent to addTransaction function for reducer to handle the addition of new transaction to transactions array in Global Context and activating the snackbar
     const onSubmit = event => {
         event.preventDefault();
@@ -71,6 +77,8 @@ export function NewExpense() {
         }
         addTransaction(newExpense);
         handleSnackbarOpening();
+        timeID();
+        clearTimeout(timeID);
     }
 
     const handleCancel = () => {
@@ -170,7 +178,7 @@ export function NewExpense() {
                            type="text"
                            value={category}
                            onChange={event => setCategory(event.target.value)}
-                           placeholder={"Choose a category"}
+                           placeholder={"Type the category"}
                            name="category"
                            id="category"
                     />
