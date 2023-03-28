@@ -58,11 +58,11 @@ export function EditExpense() {
 
     return (
         <div className="expense">
-            <h2 className={"expense__header"}>
+            <h2 className="expense__header">
                 Edit Expense
             </h2>
-            <form className={"expense__form"} onSubmit={onSubmit}>
-                <div className={"expense__form-container"}>
+            <form className="expense__form" onSubmit={onSubmit}>
+                <div className="expense__form-container">
                     <label htmlFor="name">
                         What did you pay for?
                     </label>
@@ -70,13 +70,13 @@ export function EditExpense() {
                            type="text"
                            value={newName}
                            onChange={event => setNewName(event.target.value)}
-                           autoCorrect={"on"}
-                           placeholder={"Type the name"}
+                           autoCorrect="on"
+                           placeholder="Type the name"
                            name="name"
                            id="name"
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     <label htmlFor="date">
                         When was the payment made?
                     </label>
@@ -84,24 +84,24 @@ export function EditExpense() {
                            type="date"
                            value={newDate}
                            onChange={event => setNewDate(event.target.value)}
-                           placeholder={"Type the date"}
+                           placeholder="Type the date"
                            name="date"
                            id="date"
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     <label htmlFor="value">
                         What was the value?
                     </label>
                     <input required={true}
                            type="number" value={newValue}
                            onChange={event => setNewValue(event.target.value)}
-                           placeholder={"Type amount"}
+                           placeholder="Type amount"
                            name="value"
                            id="value"
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     <label htmlFor="currency">
                         What was the currency?
                     </label>
@@ -109,13 +109,13 @@ export function EditExpense() {
                            type="text"
                            value={newCurrency}
                            onChange={event => setNewCurrency(event.target.value)}
-                           placeholder={"Choose the currency"}
+                           placeholder="Choose the currency"
                            name="currency"
                            id="currency"
                            disabled={true}
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     {/*TODO: category picking with add category*/}
                     <label htmlFor="category">
                         What is the category of the expense?
@@ -124,12 +124,12 @@ export function EditExpense() {
                            type="text"
                            value={newCategory}
                            onChange={event => setNewCategory(event.target.value)}
-                           placeholder={"Choose a category"}
+                           placeholder="Choose a category"
                            name="category"
                            id="category"
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     <label htmlFor="notes">
                         Add note?
                     </label>
@@ -138,11 +138,11 @@ export function EditExpense() {
                               maxLength={80}
                               value={newNotes}
                               onChange={event => setNewNotes(event.target.value)}
-                              autoCorrect={"on"}
-                              placeholder={"Type a note (80 characters)"}
+                              autoCorrect="on"
+                              placeholder="Type a note (80 characters)"
                     />
                 </div>
-                <div className={"expense__form__button-container"}>
+                <div className="expense__form__button-container">
                     <button className="expense__form__button-container__button expense__form__button-container__button-confirm"
                     >
                         Edit Expense

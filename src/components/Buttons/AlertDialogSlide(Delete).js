@@ -69,7 +69,7 @@ export default function AlertDialogSlideDelete({ transaction }) {
                 aria-describedby="alert-dialog-slide-description"
             >
                 {/*Pop-up title - Material UI*/}
-                <DialogTitle>{"Do you want to delete the expense?"}</DialogTitle>
+                <DialogTitle>"Do you want to delete the expense?"</DialogTitle>
                 {/*Pop-up delete confirmation or rejection - Material UI*/}
                 <DialogActions>
                     {/*Cancel and close pop-up*/}

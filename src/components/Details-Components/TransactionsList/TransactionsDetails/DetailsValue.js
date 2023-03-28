@@ -20,7 +20,7 @@ export function DetailsValue({ transaction }) {
 
 
     return (
-        <div className={"overview-details-expense__container__value"}>
+        <div className="overview-details-expense__container__value">
             {transaction.value}{transaction.currency}
         </div>
 

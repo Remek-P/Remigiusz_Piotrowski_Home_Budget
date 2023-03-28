@@ -15,9 +15,9 @@ export function DetailsSumupPreviousMonth({ catName }) {
     const previousMonth = oneMonthBackYear+oneMonthBack
     
     return (
-        <h5 className={"overview-details-summup__header"}>
+        <h5 className="overview-details-summup__header">
             Prev. month
-            <div className={"overview-details-summup__values"}>
+            <div className="overview-details-summup__values">
                 {/*Rendering sum-up from Calculator, and passing category name and parent's previous month*/}
                 <Calculator
                     parentMonth={previousMonth}

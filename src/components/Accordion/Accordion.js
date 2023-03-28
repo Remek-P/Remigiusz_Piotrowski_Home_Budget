@@ -34,10 +34,10 @@ export default function SimpleAccordion({ transaction }) {
             <Accordion>
                 {/*Component handling the always visible part of accordion*/}
                 <AccordionSummary>
-                    <section className={"transactionList-accordionSummary__header"}>
+                    <section className="transactionList-accordionSummary__header">
                         {/*Component displaying date, kept as a separate one for further manipulation in the future; passing transaction*/}
                         <DetailsDate transaction={transaction}/>
-                        <div className={"overview-details-expense__container"}>
+                        <div className="overview-details-expense__container">
                             {/*Component displaying name, kept as a separate one for further manipulation in the future; passing transaction*/}
                             <DetailsName transaction={transaction}/>
                             {/*Component displaying vale of the transaction, kept as a separate one for further manipulation in the future; passing transaction*/}
@@ -52,7 +52,7 @@ export default function SimpleAccordion({ transaction }) {
                         <DetailsCategory transaction={transaction}/>
                         {/*Description of transaction; passing transaction*/}
                         <DetailsDescription transaction={transaction}/>
-                        <div className={"accordion-details-buttons"}>
+                        <div className="accordion-details-buttons">
                             {/*Edit Button; passing transaction*/}
                             <EditTransactionButton transaction={transaction}/>
                             {/*Delete Button; passing transaction*/}

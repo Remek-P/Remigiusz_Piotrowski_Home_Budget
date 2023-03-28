@@ -13,8 +13,8 @@ export function Details({ catName }) {
     let [ sortByDateDescending, setSortByDateDescending ] = useState(true);
 
     return (
-        <section className={"overview-details"}>
-            <h3 className={"overview-details__header"}>
+        <section className="overview-details">
+            <h3 className="overview-details__header">
                 {/* Displays category name/all expanses and serves as a menu button; passing state and category name*/}
                 <MenuButton
                     setSortByDateDescending={setSortByDateDescending}
@@ -22,7 +22,7 @@ export function Details({ catName }) {
                     catName={catName}
                 />
             </h3>
-            <ul className={"overview-details-summup"}>
+            <ul className="overview-details-summup">
                 <li>
                     {/*Rendering current month Sum-up; passing category name*/}
                     <DetailsSumupCurrentMonth catName={catName}/>

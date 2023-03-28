@@ -96,7 +96,7 @@ export function EditCategoryName({ catName, setAnchorEl }) {
                 aria-describedby="alert-dialog-slide-description"
             >
                 {/*Title - Material UI*/}
-                <DialogTitle>{"New category name"}</DialogTitle>
+                <DialogTitle>"New category name"</DialogTitle>
                 {/*Action menu - Material UI*/}
                 <DialogActions>
                     <div style={{width: "100%", display: "flex", justifyContent: "space-around"}}>
@@ -110,7 +110,7 @@ export function EditCategoryName({ catName, setAnchorEl }) {
                                     marginX: "1rem",
                                     borderBottom: "f000",
                                 }}
-                                variant={"standard"}
+                                variant="standard"
                                 onChange={handleInput}
                             />
                         </Box>

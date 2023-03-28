@@ -92,118 +92,118 @@ export function NewExpense() {
     // }
 
     return (
-        <div className={"expense"}>
-            <h2 className={"expense__header"} onClick={handleCancel}>
+        <div className="expense">
+            <h2 className="expense__header" onClick={handleCancel}>
                 New Expense
             </h2>
             <form
-                className={"expense__form"}
+                className="expense__form"
                 onSubmit={onSubmit}
             >
-                <div className={"expense__form-container"}>
-                    <label className={"expense__form-container__label"}
+                <div className="expense__form-container">
+                    <label className="expense__form-container__label"
                            htmlFor="name"
                     >
                         What did you pay for?
                     </label>
-                    <input className={"expense__form-container__input"}
+                    <input className="expense__form-container__input"
                            required={true}
                            type="text"
                            value={name}
                            onChange={event => setName(event.target.value)}
-                           autoCorrect={"on"}
-                           placeholder={"Type the name"}
+                           autoCorrect="on"
+                           placeholder="Type the name"
                            name="name"
                            id="name"
                     />
                 </div>
-                <div className={"expense__form-container"}>
-                    <label className={"expense__form-container__label"}
+                <div className="expense__form-container">
+                    <label className="expense__form-container__label"
                            htmlFor="date"
                     >
                         When was the payment made?
                     </label>
-                    <input className={"expense__form-container__input"}
+                    <input className="expense__form-container__input"
                            required={true}
                            type="date"
                            value={date}
                            onChange={event => setDate(event.target.value)}
-                           placeholder={"Type the date"}
+                           placeholder="Type the date"
                            name="date"
                            id="date"
                     />
                 </div>
-                <div className={"expense__form-container"}>
-                    <label className={"expense__form-container__label"}
+                <div className="expense__form-container">
+                    <label className="expense__form-container__label"
                            htmlFor="value"
                     >
                         What was the value?
                     </label>
-                    <input className={"expense__form-container__input"}
+                    <input className="expense__form-container__input"
                            required={true}
                            type="number"
                            value={value}
                            onChange={event => setValue(event.target.value)}
-                           placeholder={"Type amount"}
+                           placeholder="Type amount"
                            name="value"
                            id="value"
                     />
                 </div>
-                <div className={"expense__form-container"}>
-                    <label className={"expense__form-container__label"}
+                <div className="expense__form-container">
+                    <label className="expense__form-container__label"
                            htmlFor="currency"
                     >
                         What was the currency?
                     </label>
-                    <input className={"expense__form-container__input"}
+                    <input className="expense__form-container__input"
                            required={true}
                            type="text"
                            value={currency}
                            onChange={event => setCurrency(event.target.value)}
-                           placeholder={"Choose the currency"}
+                           placeholder="Choose the currency"
                            name="currency"
                            id="currency"
                            disabled={true}
                     />
                 </div>
-                <div className={"expense__form-container"}>
+                <div className="expense__form-container">
                     {/*TODO: category picking with add category*/}
-                    <label className={"expense__form-container__label"}
+                    <label className="expense__form-container__label"
                            htmlFor="category"
                     >
                         What is the category?
                     </label>
-                    <input className={"expense__form-container__input"}
+                    <input className="expense__form-container__input"
                            required={true}
                            type="text"
                            value={category}
                            onChange={event => setCategory(event.target.value)}
-                           placeholder={"Type the category"}
+                           placeholder="Type the category"
                            name="category"
                            id="category"
                     />
                 </div>
-                <div className={"expense__form-container"}>
-                    <label className={"expense__form-container__label"}
+                <div className="expense__form-container">
+                    <label className="expense__form-container__label"
                            htmlFor="notes"
                     >
                         Add note?
                     </label>
-                    <textarea className={"expense__form-container__input"}
+                    <textarea className="expense__form-container__input"
                               name="notes"
                               id="notes"
                               maxLength={80}
                               value={notes}
                               onChange={event => setNotes(event.target.value)}
-                              autoCorrect={"on"}
-                              placeholder={"Type a note (80 characters)"}
+                              autoCorrect="on"
+                              placeholder="Type a note (80 characters)"
                     />
                 </div>
-                <div className={"expense__form__button-container"}>
-                    <button className={"expense__form__button-container__button expense__form__button-container__button-confirm"}>
+                <div className="expense__form__button-container">
+                    <button className="expense__form__button-container__button expense__form__button-container__button-confirm">
                         Add Expense
                     </button>
-                    <button className={"expense__form__button-container__button expense__form__button-container__button-cancel"}
+                    <button className="expense__form__button-container__button expense__form__button-container__button-cancel"
                             onClick={handleCancel}
                     >
                         Cancel

@@ -79,7 +79,7 @@ export function DeleteCategory({catName, setAnchorEl}) {
                 aria-describedby="alert-dialog-slide-description"
             >
                 {/*Title - Material UI*/}
-                <DialogTitle>{"Do you want to delete the category?"}</DialogTitle>
+                <DialogTitle>"Do you want to delete the category?"</DialogTitle>
                 {/*Dialog to confirm or reject deletion*/}
                 <DialogActions>
                     {/*Cancel button and close dialog - Material UI*/}

@@ -23,9 +23,9 @@ export function DetailsSumupM2MPercentage({ catName }) {
     const previousMonth = oneMonthBackYear+oneMonthBack
 
     return (
-        <h5 className={"overview-details-summup__header"}>
+        <h5 className="overview-details-summup__header">
             M2M&nbsp;change
-            <div className={"overview-details-summup__values"}>
+            <div className="overview-details-summup__values">
                 <PercentageCalculator
                     parentCurrentMonth={currentMonth}
                     parentPreviousMonth={previousMonth}

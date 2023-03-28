@@ -13,7 +13,7 @@ export function OverviewSumUp() {
     const currentMonth = currentYear+month
 
     return (
-        <div className={"overview-main__sum-up"}>
+        <div className="overview-main__sum-up">
             {/*Rendering sum-up from Calculator, and passing month*/}
             <Calculator parentMonth={currentMonth} />
             {/*TODO: change to currencySign for global control*/}
