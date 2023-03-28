@@ -200,13 +200,13 @@ export function NewExpense() {
                     />
                 </div>
                 <div className="expense__form__button-container">
-                    <button className="expense__form__button-container__button expense__form__button-container__button-confirm">
-                        Add Expense
-                    </button>
                     <button className="expense__form__button-container__button expense__form__button-container__button-cancel"
                             onClick={handleCancel}
                     >
                         Cancel
+                    </button>
+                    <button className="expense__form__button-container__button expense__form__button-container__button-confirm">
+                        Add Expense
                     </button>
                 </div>
                 {/*Component for displaying success notification, after adding a singular transaction*/}

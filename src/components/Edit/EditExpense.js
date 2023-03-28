@@ -50,6 +50,10 @@ export function EditExpense() {
         navigate(`/CategoryMain/${editedExpense.category}`);
     }
 
+    const handleCancel = () => {
+        navigate("/")
+    }
+
     // function valueOnChange() {
     //     const regExNumerical = /0-9/;
     //     const isPriceNumerical = regExNumerical.test(value);
@@ -143,6 +147,11 @@ export function EditExpense() {
                     />
                 </div>
                 <div className="expense__form__button-container">
+                    <button className="expense__form__button-container__button expense__form__button-container__button-cancel"
+                            onClick={handleCancel}
+                    >
+                        Cancel
+                    </button>
                     <button className="expense__form__button-container__button expense__form__button-container__button-confirm"
                     >
                         Edit Expense
