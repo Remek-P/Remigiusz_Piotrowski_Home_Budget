@@ -4,11 +4,11 @@ import { AppReducer } from "./AppReducer";
 //hardcoded values for presentational purpose, can be deleted
 const initialState = {
     transactions: [
-        {id: 1, name: "game", date: "2023-01-01", month: "202301", day: "20230101", value: 2000, currency: "zł", category: "gaming", notes: "present for my birthday"},
+        {id: 1, name: "game", date: "2023-01-01", month: "202301", day: "20230101", value: 2000, currency: "zł", category: "gaming", notes: "present for birthday"},
         {id: 2, name: "bread", date: "2022-12-01", month: "202212", day: "20221201", value: 20, currency: "zł", category: "gaming", notes: "present for my birthday"},
         {id: 3, name: "Sigur Ros", date: "2022-11-03", month: "202211", day: "20221103", value: 2000, currency: "zł", category: "concert", notes: "present for my birthday"},
         {id: 4, name: "phone", date: "2022-11-04", month: "202211", day: "20221104", value: 2000, currency: "zł", category: "my", notes: "present for my birthday"},
-        {id: 5, name: "racs", date: "2022-11-05", month: "202211", day: "20221105", value: 10, currency: "zł", category: "trips", notes: "present for my birthday"},
+        {id: 5, name: "skies", date: "2022-11-05", month: "202211", day: "20221105", value: 10, currency: "zł", category: "trips", notes: "present for my birthday"},
         {id: 6, name: "PS5", date: "2022-11-06", month: "202211", day: "20221106", value: 10, currency: "zł", category: "gaming", notes: "present for my birthday"},
         {id: 7, name: "PS6", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "gaming", notes: "present for my birthdays sssssss s s  s ssssssssssssss ss s s s sssssssssssssssssss s ssssssssssssssssssssss s"},
         {id: 8, name: "Four Tet", date: "2022-10-06", month: "202210", day: "20221006", value: 10000, currency: "zł", category: "concert", notes: "was awesome"},

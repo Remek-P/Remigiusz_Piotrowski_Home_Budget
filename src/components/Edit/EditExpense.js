@@ -57,7 +57,7 @@ export function EditExpense() {
     // }
 
     return (
-        <>
+        <div className="expense">
             <h2 className={"expense__header"}>
                 Edit Expense
             </h2>
@@ -142,8 +142,13 @@ export function EditExpense() {
                               placeholder={"Type a note (80 characters)"}
                     />
                 </div>
-                <button>Edit Expense</button>
+                <div className={"expense__form__button-container"}>
+                    <button className="expense__form__button-container__button expense__form__button-container__button-confirm"
+                    >
+                        Edit Expense
+                    </button>
+                </div>
             </form>
-        </>
+        </div>
     )
 }

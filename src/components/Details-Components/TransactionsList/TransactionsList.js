@@ -16,7 +16,7 @@ export function TransactionsList({ catName, sortByDateDescending }) {
     const sortTransactionsAscending = [...transactions].sort((a, b) => a.day - b.day);
 
     //Choosing if descending or ascending by receiving true/false from sort button in MenuButton via Details
-    let sortedTransactions = sortByDateDescending === false
+    let sortedTransactions = sortByDateDescending === true
         ? sortTransactionsDescending
         : sortTransactionsAscending
 

@@ -74,7 +74,7 @@ export default function MenuButton({ catName,sortByDateDescending, setSortByDate
     };
 
     //Displaying sorting icon (up or down) based on the user preferences, and passed by state - default descending
-    const arrowDirection = sortByDateDescending === false
+    const arrowDirection = sortByDateDescending === true
         ? <VerticalAlignTopIcon />
         : <VerticalAlignBottomIcon />
 
