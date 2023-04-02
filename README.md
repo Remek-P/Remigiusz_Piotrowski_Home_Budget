@@ -5,11 +5,12 @@ It is a simple expense tracker meant for mobile devices, thus please keep the sc
 Technologies used:
 React,
 React Router v5,
-SCSS
-Babel
-Webpack
-Material UI
-Google Fonts
+SCSS,
+Babel,
+Webpack,
+Material UI,
+Google Fonts,
+FontAwesome icons.
 
 Details:
 I have added several hardcoded transactions, but they can be easily deleted or modified.
