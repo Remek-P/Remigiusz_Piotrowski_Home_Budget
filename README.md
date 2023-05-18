@@ -1,6 +1,6 @@
 # Remigiusz_Piotrowski_Home_Budget
 
-This is an old version, current version here:
+This is an old version, current version is located here:
 https://github.com/Remek-P/Home_Budget/tree/main/home-budget
 
 This is my first project, created for the final exam (Coders Lab bootcamp).
