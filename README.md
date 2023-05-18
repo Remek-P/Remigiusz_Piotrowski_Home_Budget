@@ -1,4 +1,8 @@
 # Remigiusz_Piotrowski_Home_Budget
+
+This is an old version, current version here:
+https://github.com/Remek-P/Home_Budget/tree/main/home-budget
+
 This is my first project, created for the final exam (Coders Lab bootcamp).
 It is a simple expense tracker meant for mobile devices, thus please keep the screen width at around 300-600 px.
 
